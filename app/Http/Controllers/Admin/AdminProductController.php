@@ -37,10 +37,61 @@ class AdminProductController extends Controller
             $new_pro->image = $imgUrl;
         }
 
+        if($request->hasFile('image_one')){
+            $image = $request->file('image_one');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_one');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $new_pro->image_one = $imgUrl;
+        }
+
+        if($request->hasFile('image_two')){
+            $image = $request->file('image_two');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_two');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $new_pro->image_two = $imgUrl;
+        }
+
+        if($request->hasFile('image_three')){
+            $image = $request->file('image_three');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_three');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $new_pro->image_three = $imgUrl;
+        }
+
+        if($request->hasFile('image_four')){
+            $image = $request->file('image');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_four');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $new_pro->image_four = $imgUrl;
+        }
+
+        if($request->hasFile('image_five')){
+            $image = $request->file('image_five');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_five');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $new_pro->image_five = $imgUrl;
+        }
+
         $new_pro->product_name = $request->product_name;
         $new_pro->category_id = $request->category_id;
         $new_pro->tag_id = $request->tag_id;
-        $new_pro->product_price = $request->product_price;
+        $new_pro->is_featured = $request->is_featured;
+        $new_pro->item_code = $request->item_code;
+        $new_pro->size = $request->size;
+        $new_pro->material = $request->material;
+        $new_pro->finish = $request->finish;
+        $new_pro->cbm = $request->cbm;
+        $new_pro->assembly = $request->assembly;
         $new_pro->sort_des = $request->sort_des;
         $new_pro->long_desc = $request->long_desc;
         $new_pro->save();
@@ -74,10 +125,68 @@ class AdminProductController extends Controller
             $product->image = $imgUrl;
         }
 
+
+        if($request->hasFile('image_one')){
+            @unlink($product->image_one);
+            $image = $request->file('image_one');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_one');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $product->image_one = $imgUrl;
+        }
+
+        if($request->hasFile('image_two')){
+            @unlink($product->image_two);
+            $image = $request->file('image_two');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_two');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $product->image_two = $imgUrl;
+        }
+
+        if($request->hasFile('image_three')){
+            @unlink($product->image_three);
+            $image = $request->file('image_three');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_three');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $product->image_three = $imgUrl;
+        }
+
+        if($request->hasFile('image_four')){
+            @unlink($product->image_four);
+            $image = $request->file('image');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_four');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $product->image_four = $imgUrl;
+        }
+
+        if($request->hasFile('image_five')){
+            @unlink($product->image_five);
+            $image = $request->file('image_five');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_five');
+            $directory = 'assets/admin/images/product/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $product->image_five = $imgUrl;
+        }
+
+
         $product->product_name = $request->product_name;
         $product->category_id = $request->category_id;
         $product->tag_id = $request->tag_id;
-        $product->product_price = $request->product_price;
+        $product->is_featured = $request->is_featured;
+        $product->item_code = $request->item_code;
+        $product->size = $request->size;
+        $product->material = $request->material;
+        $product->finish = $request->finish;
+        $product->cbm = $request->cbm;
+        $product->assembly = $request->assembly;
         $product->sort_des = $request->sort_des;
         $product->long_desc = $request->long_desc;
         $product->save();

@@ -2,7 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\order;
+use App\order_details;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class HomeController extends Controller
 {
@@ -23,6 +28,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $user = User::where('id',Auth::user()->id)->first();
+        $time = Carbon::now();
+        if ($time > $user->exp_date){
+//            Auth::guard('web')->logout();
+//            $user->account_status = 1;
+//            $user->save();
+//            return redirect(route('login'))->with('delete_message','Sorry! Your Account Was Disable');
+        }
+
+        return view('user.index');
     }
 }

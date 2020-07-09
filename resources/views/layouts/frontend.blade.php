@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+<html lang="eng">
+<!--<![endif]-->
+<!-- Begin Head -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/animate.css">
+    <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/all.css">
+    <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/nice-select.css">
+    <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/settings.css">
+    <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/owl.carousel.css">
+
+
+
+    <link rel="stylesheet" href="http://medialinkers.net/demo/envato/saloon/publish/rs-plugin/css/settings.css">
+    <link rel="stylesheet" href="http://medialinkers.net/demo/envato/saloon/publish/css/owl.carousel.css">
+    <link rel="stylesheet" type="text/css" href="{{asset('assets/frontend/')}}/css/jquery.fancybox.min.css" media="screen" />
+
+    <link rel="stylesheet" href="http://kamleshyadav.com/html/multi-farious/html/assets/css/swiper.min.css">
+
+    <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/swiper.min.css">
+
+    <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/menu.css">
+    <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/style.css">
+    <link rel="shortcut icon" type="image/ico" href="{{asset('assets/frontend/')}}/images/index1/favicon.svg" />
+    <title>{{$gn->site_name}}</title>
+
+</head>
+<body>
+<!-- Preloader Box -->
+<div class="preloader_wrapper preloader_active preloader_open">
+    <div class="preloader_holder">
+        <div class="preloader d-flex justify-content-center align-items-center h-100">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+</div>
+<!-- Search Box -->
+<div class="searchBox">
+    <div class="searchBoxContainer">
+        <a href="javascript:void(0);" class="closeBtn">
+            <svg viewBox="0 0 413.348 413.348" xmlns="http://www.w3.org/2000/svg"><path d="m413.348 24.354-24.354-24.354-182.32 182.32-182.32-182.32-24.354 24.354 182.32 182.32-182.32 182.32 24.354 24.354 182.32-182.32 182.32 182.32 24.354-24.354-182.32-182.32z"/></svg>
+        </a>
+        <div class="search_bar_inner">
+            <input type="text" placeholder="Enter Your keywords"/>
+            <button type="submit"><i class="fa fa-search" aria-hidden="true"></i></button>
+        </div>
+    </div>
+</div>
+<!-- Main Wraapper -->
+<div class="main_wrapper">
+    <section class="relative">
+        <!-- Header Start -->
+        <header class="gym_header_wrapper">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-lg-3 col-md-4 col-sm-4 col-5">
+                        <div class="gym_logo">
+                            <a href="{{route('front')}}">
+                                <img src="{{asset($gn->logo)}}" alt="logo" />
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-lg-9 col-md-8 col-sm-8 col-7">
+                        <div class="gym_main_menu main_menu_parent">
+                            <!-- Header Menus -->
+                            <div class="gym_nav_items main_menu_wrapper text-right">
+                                <ul>
+                                    <li class="has_submenu active">
+                                        <a href="{{route('front')}}">Home</a>
+                                    </li>
+                                    <li><a href="">About Us</a></li>
+                                    @guest
+                                    <li class="has_submenu">
+                                        <a href="{{route('login')}}">Products</a>
+                                        </li>
+                                    @else
+                                        <li class="has_submenu">
+                                            <a href="{{route('all.products')}}">Products</a>
+                                        </li>
+                                    @endguest
+
+                                    <li><a href="">Virtual Tour</a></li>
+                                    <li><a href="{{route('contact')}}">Contact</a></li>
+                                    @guest
+                                    <li class="has_submenu">
+                                        <a href="javascript:void(0);">Account</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="{{route('login')}}">Login</a></li>
+                                            <li><a href="{{route('register')}}">Register</a></li>
+                                        </ul>
+                                    </li>
+                                    @else
+                                    <li class="has_submenu">
+                                        <a href="javascript:void(0);">Account</a>
+                                        <ul class="sub_menu">
+                                            <li><a href="{{route('home')}}">Dashboard</a></li>
+                                            <li><a href="{{ route('logout') }}"
+                                                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
+
+                                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                                    @csrf
+                                                </form>
+
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    @endguest
+                                </ul>
+                            </div>
+                            <div class="gym_search_cart menu_btn_wrap">
+                                <ul class="display_flex">
+                                    <li><a href="javascript:void(0);" class="searchBtn"><i class="fas fa-search"></i></a></li>
+                                    <?php
+
+                                    $carts = \Gloudemans\Shoppingcart\Facades\Cart::content();
+                                    $carts_count = \Gloudemans\Shoppingcart\Facades\Cart::content()->count();
+                                    ?>
+                                    <li class="gym_cart_open relative">
+                                        <a class="ml-2" href="javascript:void(0);">
+                                            <i class="fab fa-opencart"></i>
+                                            <span>Bag ({{$carts_count}})</span></a>
+                                        <div class="gym_cart_box">
+
+
+
+                                            @foreach($carts as $cart)
+                                                <div class="gym_cart_flex">
+                                                <div class="cart_one">
+                                                    <a href="{{route('remove.item.cart',$cart->rowId)}}">x</a>
+                                                    <h4>{{$cart->name}}</h4>
+                                                    <p>{{$cart->qty}}</p>
+                                                </div>
+                                                <div class="cart_two">
+                                                    <img src="{{asset($cart->options->image)}}" alt=""/>
+                                                </div>
+                                            </div>
+                                                @endforeach
+
+                                            <div class="gym_cart_btn2">
+{{--                                                <p>subtotal:${{\Gloudemans\Shoppingcart\Facades\Cart::subtotal()}}</p>--}}
+                                                <ul>
+                                                    <li><a href="{{route('view.cart')}}" class="gym_btn btn_1">view cart</a></li>
+                                                    <li><a href="{{route('checkout')}}" class="gym_btn btn_1">checkout</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="javascript:void(0);" class="menu_btn">
+                                            <span></span>
+                                            <span></span>
+                                            <span></span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Banner Wraapper -->
+@yield('front')
+        <footer>
+            <div class="footer_wrapper">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
+                            <div class="widgets footer_about">
+                                <!-- <img class="footer_logo" src="assets/images/index7/footer_logo.png" alt="" /> -->
+                                <h4 class="mb-4"><img src="{{asset($gn->logo)}}" style="height: 200px;width: 100%"></h4>
+                                <p>{!! $gn->footer_content !!}</p>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
+                            <div class="widgets footer_menu">
+                                <div class="footer_title">
+                                    <h4 class="footer_heading">Company</h4>
+                                    <img src="{{asset('assets/frontend/')}}/images/heading_border_half.png" alt="" />
+                                </div>
+                                <ul>
+                                    <li><a href="">About Refubsy</a></li>
+                                    <li><a href="">Privacy Policy</a></li>
+                                    <li><a href="">Get In Touch</a></li>
+                                    <li><a href="">Our Clients</a></li>
+                                    <li><a href="">Event & News</a></li>
+                                    <li><a href="">Download Broucher</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
+                            <div class="widgets footer_menu">
+                                <div class="footer_title">
+                                    <h4 class="footer_heading">Learn More</h4>
+                                    <img src="{{asset('assets/frontend/')}}/images/heading_border_half.png" alt="" />
+                                </div>
+                                <ul>
+                                    <li><a href="">Our Customer</a></li>
+                                    <li><a href="">Take a Tour</a></li>
+                                    <li><a href="">Pricing Table</a></li>
+                                    <li><a href="">Sort Code</a></li>
+                                    <li><a href="">More Features</a></li>
+                                    <li><a href="">Traing Video</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
+                            <div class="widgets footer_menu">
+                                <div class="footer_title">
+                                    <h4 class="footer_heading">Helps Desk</h4>
+                                    <img src="{{asset('assets/frontend/')}}/images/heading_border_half.png" alt="" />
+                                </div>
+                                <ul>
+                                    <li><a href="">Customer Care</a></li>
+                                    <li><a href="">Services</a></li>
+                                    <li><a href="">Legal Help</a></li>
+                                    <li><a href="">Our Project</a></li>
+                                    <li><a href="">Contact Us</a></li>
+                                    <li><a href="">Meet With Us</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
+                            <div class="widgets footer_address">
+                                <div class="footer_title">
+                                    <h4 class="footer_heading">Contact Us</h4>
+                                    <img src="{{asset('assets/frontend/')}}/images/heading_border_half.png" alt="" />
+                                </div>
+                                <ul>
+                                    <li><span>Office Address :</span>
+                                        <div class="footer_info">
+                                            <a href="">{{$gn->site_address}}</a>
+                                        </div>
+                                    </li>
+                                    <li><span>Contact Number :</span>
+                                        <div class="footer_info">
+                                            <a href="">+ {{$gn->site_phone}}</a>
+                                        </div>
+                                    </li>
+                                    <li><span>Email Address  :</span>
+                                        <div class="footer_info">
+                                            <a href="">{{$gn->site_email}}</a>
+                                        </div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright_wrapper white">
+                <div class="col-lg-12 col-md-12 col-sm-12 col-12 text-center">
+                    <p>Copyright © 2020 <a class="white" href="">{{$gn->site_name}}</a>. All Right Reserved.</p>
+                </div>
+            </div>
+        </footer>
+
+
+
+
+
+        <!-- GO To Top -->
+        <a href="javascript:void(0);" id="scroll"><span class="fa fa-angle-double-up"></span></a>
+        <!-- Script Start -->
+        <script src="{{asset('assets/frontend/')}}/js/jquery.min.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/popper.min.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/bootstrap.min.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/nice-select.min.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/wow.min.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/swiper.min.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/owl.carousel.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/script.js"></script>
+        <script src='{{asset('assets/frontend/')}}/js/jquery.magnific-popup.min.js'></script>
+
+
+
+        <script src="{{asset('assets/frontend/')}}/js/jquery.elevatezoom.min.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/jquery.fancybox.min.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/plugins.js"></script>
+        <script src="{{asset('assets/frontend/')}}/js/product-slider.js"></script>
+
+        <script src="{{asset('assets/frontend/')}}/js/swiper.min.js"></script>
+
+
+        <script src="{{asset('assets/frontend/')}}/js/custom.js"></script>
+        <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
+        @include('layouts.message')
+        <script>
+
+            var player;
+            var lastButton = '';
+            const youtube = 'youTubeIframe';
+            const titleInsert = '.js-title-insert';
+            const btnPlay = '.js-play';
+            const btnPause = '.js-pause';
+            const modalId = '#modalVideo';
+            const videoQuality = 'hd720';
+
+            function onYouTubePlayerAPIReady() {
+                player = new YT.Player(youtube, {
+                    controls: 2,
+                    iv_load_policy: 3,
+                    rel: 0,
+                    events: {
+                        onReady: onPlayerReady
+                    }
+                });
+            }
+
+            function onPlayerReady(event) {
+                'use strict';
+                $(btnPlay).on('click', function() {
+                    var videoId = $(this).attr('data-src');
+
+                    if (lastButton == videoId) {
+                        $(titleInsert).text($(this).attr('data-title'));
+                        player.playVideo(videoId, 0, videoQuality);
+                    } else {
+                        $(titleInsert).text($(this).attr('data-title'));
+                        player.loadVideoById(videoId, 0, videoQuality);
+                        lastButton = videoId;
+                    }
+                });
+
+                $(btnPause).on('click', function() {
+                    player.pauseVideo();
+                });
+
+                $(modalId).on('click', function() {
+                    player.pauseVideo();
+                });
+            }
+        </script>
+        @yield('js')
+</body>
+</html>

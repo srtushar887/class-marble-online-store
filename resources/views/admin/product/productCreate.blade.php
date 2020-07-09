@@ -47,19 +47,67 @@
                                     @endforeach
                                 </select>
                             </div>
-
                             <div class="col-md-4 mb-3">
-                                <label for="validationCustom01">Product price</label>
-                                <input type="text" name="product_price" class="form-control" id="validationCustom01"  required="">
+                                <label for="validationCustom01">Is Featured</label>
+                                <select class="form-control" name="is_featured">
+                                    <option value="0">select any</option>
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
                             </div>
 
-                            <div class="col-md-12 mb-3">
-                                <label for="validationCustom01">Product Image</label>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Item Code</label>
+                                <input type="text" name="item_code" class="form-control" id="validationCustom01"  required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Size</label>
+                                <input type="text" name="size" class="form-control" id="validationCustom01"  required="">
+                            </div>
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Material</label>
+                                <input type="text" name="material" class="form-control" id="validationCustom01"  required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Finish</label>
+                                <input type="text" name="finish" class="form-control" id="validationCustom01"  required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">CBM</label>
+                                <input type="text" name="cbm" class="form-control" id="validationCustom01"  required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Assembly</label>
+                                <input type="text" name="assembly" class="form-control" id="validationCustom01"  required="">
+                            </div>
+
+
+
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Product Main Image</label>
                                 <input type="file" class="form-control" name="image" id="validationCustom01"   required="">
                             </div>
-                            <div class="col-md-12 mb-3">
-                                <label for="validationCustom01">Product Sort Description</label>
-                                <textarea type="text" class="form-control" name="sort_des" id="validationCustom01"   required=""></textarea>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Product Image One</label>
+                                <input type="file" class="form-control" name="image_one" id="validationCustom01"   required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Product Image Two</label>
+                                <input type="file" class="form-control" name="image_two" id="validationCustom01"   required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Product Image Three</label>
+                                <input type="file" class="form-control" name="image_three" id="validationCustom01"   required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Product Image Four</label>
+                                <input type="file" class="form-control" name="image_four" id="validationCustom01"   required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Product Image Five</label>
+                                <input type="file" class="form-control" name="image_five" id="validationCustom01"   required="">
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Product Long Description</label>

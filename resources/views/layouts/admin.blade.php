@@ -5,7 +5,7 @@
 <!-- Mirrored from myrathemes.com/lunoz/layouts/vertical/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 20 Jun 2020 03:53:45 GMT -->
 <head>
     <meta charset="utf-8" />
-    <title>Lunoz - Admin & Dashboard Template</title>
+    <title>{{$gn->site_name}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="MyraStudio" name="author" />
@@ -18,7 +18,7 @@
     <link href="{{asset('assets/admin/')}}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/admin/')}}/css/icons.min.css" rel="stylesheet" type="text/css" />
     <link href="{{asset('assets/admin/')}}/css/theme.min.css" rel="stylesheet" type="text/css" />
-
+    @yield('css')
 </head>
 
 <body>
@@ -90,11 +90,16 @@
                     </li>
 
                     <li>
-                        <a href="{{route('admin.category')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>Category</span></a>
+                        <a href="{{route('admin.general.settings')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>General Settings</span></a>
+                    </li>
+
+
+                    <li>
+                        <a href="{{route('admin.category')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>Items</span></a>
                     </li>
 
                     <li>
-                        <a href="{{route('admin.tag')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>Tag</span></a>
+                        <a href="{{route('admin.tag')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>Collections</span></a>
                     </li>
 
                     <li>
@@ -102,13 +107,27 @@
                     </li>
 
 
-{{--                    <li>--}}
-{{--                        <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="bx bx-file"></i><span>Pages</span></a>--}}
-{{--                        <ul class="sub-menu" aria-expanded="false">--}}
-{{--                            <li><a href="pages-invoice.html">Invoice</a></li>--}}
-{{--                            <li><a href="pages-starter.html">Starter Page</a></li>--}}
-{{--                        </ul>--}}
-{{--                    </li>--}}
+                    <li>
+                        <a href="{{route('admin.users')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>Users</span></a>
+                    </li>
+
+
+                    <li>
+                        <a href="{{route('admin.order')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>User Order</span></a>
+                    </li>
+
+
+
+
+
+
+                    <li>
+                        <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="bx bx-file"></i><span>Frontend Control</span></a>
+                        <ul class="sub-menu" aria-expanded="false">
+                            <li><a href="{{route('admin.slider')}}">Home Header</a></li>
+                            <li><a href="{{route('admin.home.partner')}}">Home Partner Section</a></li>
+                        </ul>
+                    </li>
 
 
 
@@ -175,6 +194,9 @@
 
 <!-- App js -->
 <script src="{{asset('assets/admin/')}}/js/theme.js"></script>
+
+@yield('js')
+
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 @include('layouts.message')
 </body>

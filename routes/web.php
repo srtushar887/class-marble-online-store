@@ -13,13 +13,26 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/','FrontendController@index')->name('front');
+Route::get('/all-products','FrontendController@all_products')->name('all.products');
+Route::get('/category-products/{id}','FrontendController@category_products')->name('category.product');
+Route::get('/product-details/{id}','FrontendController@product_details')->name('product.details');
+Route::get('/add-card-single/{id}','FrontendController@add_cart_single')->name('add.cart.single');
+Route::post('/add-card-multiple','FrontendController@add_cart_multiple')->name('add.cart.multiple');
+Route::get('/remove-card-single/{id}','FrontendController@remove_cart_single')->name('remove.item.cart');
+Route::get('/view-cart','FrontendController@view_cart')->name('view.cart');
+Route::get('/cart-update','FrontendController@cart_update')->name('cart.update.checkout');
+Route::get('/contact','FrontendController@contact')->name('contact');
+Route::post('/contact-send','FrontendController@contact_send')->name('contact.main.send');
+Route::get('/category-product/{id}','FrontendController@category_product')->name('category.prodyuct');
+
+//frontend filter
+Route::post('/get-all-product','FrontendController@load_more')->name('load_more');
+Route::post('/get-all-product-category-product','FrontendController@load_more_category')->name('load_more.category');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
 
 
 
@@ -33,6 +46,10 @@ Route::prefix('admin')->group(function (){
 Route::group(['middleware' => ['auth:admin']], function() {
     Route::prefix('admin')->group(function() {
         Route::get('/', 'Admin\AdminController@index')->name('admin.dashboard');
+
+        //general settings
+        Route::get('/general-settings', 'Admin\AdminController@general_settings')->name('admin.general.settings');
+        Route::post('/general-settings-save', 'Admin\AdminController@general_settings_save')->name('admin.generalsettings.save');
 
         //category
         Route::get('/category', 'Admin\AdminCategoryController@category')->name('admin.category');
@@ -56,7 +73,45 @@ Route::group(['middleware' => ['auth:admin']], function() {
         Route::post('/product-update', 'Admin\AdminProductController@product_update')->name('admin.product.update');
         Route::post('/product-delete', 'Admin\AdminProductController@product_delete')->name('admin.product.delete');
 
+        //order
+        Route::get('/user-order', 'Admin\AdminOrderController@user_order')->name('admin.order');
+        Route::get('/view-order/{id}', 'Admin\AdminOrderController@view_order')->name('admin.view.order');
+        Route::post('/order-update', 'Admin\AdminOrderController@order_update')->name('admin.order.update');
+        Route::get('/order-print/{id}', 'Admin\AdminOrderController@order_print')->name('admin.order.print');
 
+        //users
+        Route::get('/users', 'Admin\AdminUserController@users')->name('admin.users');
+        Route::post('/users-update', 'Admin\AdminUserController@users_update')->name('admin.user.update');
+        Route::get('/users-export', 'Admin\AdminUserController@user_export')->name('admin.user.export');
+
+
+        //frontend control
+        Route::get('/home-header', 'Admin\AdminFrontendController@home_slider')->name('admin.slider');
+        Route::post('/home-header-save', 'Admin\AdminFrontendController@home_slider_save')->name('admin.home.header.save');
+
+        //partner
+        Route::get('/home-partner', 'Admin\AdminFrontendController@home_partner')->name('admin.home.partner');
+        Route::post('/home-partner-create', 'Admin\AdminFrontendController@home_partner_create')->name('admin.partner.create');
+        Route::post('/home-partner-update', 'Admin\AdminFrontendController@home_partner_update')->name('admin.partner.update');
+        Route::post('/home-partner-delete', 'Admin\AdminFrontendController@home_partner_delete')->name('admin.partner.delete');
+
+
+
+    });
+});
+
+
+Route::group(['middleware' => ['auth','uStatus','uAccDis']], function() {
+    Route::group(['prefix' => 'home'], function ()
+    {
+        Route::get('/', 'HomeController@index')->name('home');
+
+        Route::get('/my-profile', 'UserController@profile')->name('my.profile');
+        Route::get('/my-profile-save', 'UserController@profile_save')->name('user.profile.save');
+
+        //checkout
+        Route::get('/checkout', 'UserController@checkout')->name('checkout');
+        Route::post('/checkout-save', 'UserController@checkout_save')->name('user.checkout.save');
 
     });
 });

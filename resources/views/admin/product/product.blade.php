@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+@section('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+@stop
 @section('admin')
     <div class="row">
         <div class="col-12">
@@ -24,12 +27,11 @@
                 <div class="card-body">
                     <h4 class="card-title">Product List</h4>
                     <div class="table-responsive">
-                        <table class="table mb-0">
+                        <table class="table mb-0" id="cate">
                             <thead>
                             <tr>
                                 <th>Product Name</th>
                                 <th>Product Image</th>
-                                <th>Product price</th>
                                 <th>Action</th>
                             </tr>
                             </thead>
@@ -38,7 +40,6 @@
                                 <tr>
                                     <td>{{$product->product_name}}</td>
                                     <td><img src="{{asset($product->image)}}" style="height: 50px;width: 50px;"></td>
-                                    <td>${{$product->product_price}}</td>
                                     <td>
                                         <a href="{{route('admin.edit.product',$product->id)}}">
 
@@ -122,4 +123,14 @@
     </div>
 
 
+@stop
+@section('js')
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#cate').DataTable();
+        })
+    </script>
 @stop

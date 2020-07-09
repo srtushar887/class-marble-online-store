@@ -1,4 +1,7 @@
 @extends('layouts.admin')
+@section('css')
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+@stop
 @section('admin')
     <div class="row">
         <div class="col-12">
@@ -21,7 +24,7 @@
                 <div class="card-body">
                     <h4 class="card-title">Category List</h4>
                     <div class="table-responsive">
-                        <table class="table mb-0">
+                        <table class="table mb-0" id="cate">
                             <thead>
                             <tr>
                                 <th>First Name</th>
@@ -140,4 +143,14 @@
     </div>
 
 
+@stop
+@section('js')
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
+
+    <script>
+        $(document).ready(function () {
+            $('#cate').DataTable();
+        })
+    </script>
 @stop
