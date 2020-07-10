@@ -185,28 +185,24 @@
                                     <img src="{{asset('assets/frontend/')}}/images/heading_border_half.png" alt="" />
                                 </div>
                                 <ul>
-                                    <li><a href="">About Refubsy</a></li>
                                     <li><a href="">Privacy Policy</a></li>
-                                    <li><a href="">Get In Touch</a></li>
-                                    <li><a href="">Our Clients</a></li>
-                                    <li><a href="">Event & News</a></li>
-                                    <li><a href="">Download Broucher</a></li>
+                                    <li><a href="{{route('contact')}}">Get In Touch</a></li>
                                 </ul>
                             </div>
                         </div>
                         <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
                             <div class="widgets footer_menu">
                                 <div class="footer_title">
-                                    <h4 class="footer_heading">Learn More</h4>
+                                    <h4 class="footer_heading">Categories</h4>
                                     <img src="{{asset('assets/frontend/')}}/images/heading_border_half.png" alt="" />
                                 </div>
                                 <ul>
-                                    <li><a href="">Our Customer</a></li>
-                                    <li><a href="">Take a Tour</a></li>
-                                    <li><a href="">Pricing Table</a></li>
-                                    <li><a href="">Sort Code</a></li>
-                                    <li><a href="">More Features</a></li>
-                                    <li><a href="">Traing Video</a></li>
+                                    <?php
+                                        $cats_rn = \App\category::inRandomOrder()->take(6)->get()
+                                    ?>
+                                    @foreach($cats_rn as $catrn)
+                                    <li><a href="{{route('category.product',$catrn->id)}}">{{$catrn->category_name}}</a></li>
+                                        @endforeach
                                 </ul>
                             </div>
                         </div>

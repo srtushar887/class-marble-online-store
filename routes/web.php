@@ -30,6 +30,12 @@ Route::get('/category-product/{id}','FrontendController@category_product')->name
 Route::post('/get-all-product','FrontendController@load_more')->name('load_more');
 Route::post('/get-all-product-category-product','FrontendController@load_more_category')->name('load_more.category');
 
+//get product bt caregory
+Route::post('/get-product-by-category','FrontendController@get_product_by_category')->name('get.product.by.category');
+
+//custom register
+Route::post('/custom-register','CustomLoginController@register')->name('custom.register');
+
 Auth::routes();
 
 

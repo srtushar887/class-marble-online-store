@@ -198,8 +198,8 @@
                             </div>
                             <div class="text">
                                 <h2 class="title h4"><a href="{{route('product.details',$pro->id)}}">{{$pro->product_name}}</a></h2>
-                                <sub>$ 1499,-</sub>
-                                <sup>$ 1099,-</sup>
+{{--                                <sub>$ 1499,-</sub>--}}
+{{--                                <sup>$ 1099,-</sup>--}}
                                 <span class="description clearfix">{!! $pro->long_desc !!}</span>
                             </div>
                         </div>
@@ -236,25 +236,25 @@
     <!-- Call To Action Section -->
 
     <!-- Partner Start -->
-    <section class="partner_wrapper">
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-12 col-md-12 col-sm-12 col-12">
-                    <div class="partners_slider swiper-container">
-                        <div class="swiper-wrapper">
-                            @foreach($partners as $partner)
-                            <div class="swiper-slide">
-                                <div class="partners_container text-center">
-                                    <a href="javascript:void(0);"><img src="{{asset($partner->image)}}" alt="partner"/></a>
-                                </div>
-                            </div>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{{--    <section class="partner_wrapper">--}}
+{{--        <div class="container">--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-lg-12 col-md-12 col-sm-12 col-12">--}}
+{{--                    <div class="partners_slider swiper-container">--}}
+{{--                        <div class="swiper-wrapper">--}}
+{{--                            @foreach($partners as $partner)--}}
+{{--                            <div class="swiper-slide">--}}
+{{--                                <div class="partners_container text-center">--}}
+{{--                                    <a href="javascript:void(0);"><img src="{{asset($partner->image)}}" alt="partner"/></a>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+{{--                            @endforeach--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 
     <!-- Newsletter Section Start -->
     <section class="newsletter_wrapper">

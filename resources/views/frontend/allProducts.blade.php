@@ -24,23 +24,28 @@
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group w-auto float-left mr-3">
-                        <label class="form-control-label">Sort</label>
-                        <select id="user_time_zone" name="product_type" class="form-control" size="0" data-parsley-id="59">
-                            <option disabled="">-- PRODUCT IN PAGE --</option>
-                            <option value="1" selected="">16 Products/Page</option>
-                            <option value="2">12 Products/Page</option>
-                            <option value="2">9 Products/Page</option>
-                            <option value="2">6 Products/Page</option>
+                        <label class="form-control-label">CATEGORIES</label>
+                        <select id="user_time_zonea" name="product_type" class="form-control categoriedchange" >
+                            <option value="0">-- SELECT ANY --</option>
+                            <?php
+                                $cats = \App\category::all();
+                            ?>
+                            @foreach($cats as $cat)
+                            <option value="{{$cat->id}}">{{$cat->category_name}}</option>
+                            @endforeach
+
                         </select>
                     </div>
                     <div class="form-group w-auto float-left">
-                        <label class="form-control-label">Sort</label>
+                        <label class="form-control-label">TAGS</label>
                         <select id="user_time_zone" name="product_type" class="form-control" size="0" data-parsley-id="59">
-                            <option disabled="">-- PRODUCT TYPE --</option>
-                            <option value="1" selected="">Default sorting</option>
-                            <option value="2">Sort by popularity</option>
-                            <option value="2">Sort by newness</option>
-                            <option value="2">Sort by price: low to high</option>
+                            <option value="0">-- SELECT ANY --</option>
+                            <?php
+                                $tags = \App\tag::all();
+                            ?>
+                            @foreach($tags as $ag)
+                            <option value="{{$ag->id}}">{{$ag->tag_name}}</option>
+                            @endforeach
                         </select>
                     </div>
                 </div>
@@ -139,6 +144,43 @@
                     }
                 }
             });
+
+
+
+            $('#user_time_zonea').change(function () {
+
+                console.log('paisi');
+
+                var id = $(this).data('id');
+                var cat_id = $(this).val();
+                $("#loadmore").html("Loading....");
+                $.ajax({
+                    url : '{{ route('get.product.by.category') }}',
+                    method : "POST",
+                    data : {id:id,cat_id:cat_id, _token:"{{csrf_token()}}"},
+                    dataType : "text",
+                    success : function (data)
+                    {
+
+                        console.log(data)
+
+                        if(data != '')
+                        {
+                            $('.remove-row').remove();
+                            $('.product').empty().append(data);
+                        }
+                        else
+                        {
+                            $('#loadmore').html("No Data");
+                        }
+                    }
+            });
+
+            });
+
+
+
+
         });
     </script>
 

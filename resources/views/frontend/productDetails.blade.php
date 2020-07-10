@@ -31,11 +31,15 @@
                                 <div class="lg-image">
                                     <div class="easyzoom easyzoom--overlay">
                                         <a href="{{asset($product->image)}}">
-                                            <img src="{{asset($product->image)}}" alt="">
+                                            @if ($product->image)
+                                                <img src="{{asset($product->image)}}" alt="">
+                                            @endif
+
                                         </a>
                                         <a href="{{asset($product->image)}}"  class="popup-img venobox" data-gall="myGallery"><i class="fa fa-expand"></i></a>
                                     </div>
                                 </div>
+                                @if (!empty($product->image_one))
                                 <div class="lg-image">
                                     <div class="easyzoom easyzoom--overlay">
                                         <a href="{{asset($product->image_one)}}">
@@ -44,6 +48,9 @@
                                         <a href="{{asset($product->image_one)}}" class="popup-img venobox" data-gall="myGallery"><i class="fa fa-expand"></i></a>
                                     </div>
                                 </div>
+                                @endif
+
+                                @if (!empty($product->image_two))
                                 <div class="lg-image">
                                     <div class="easyzoom easyzoom--overlay">
                                         <a href="{{asset($product->image_two)}}">
@@ -52,6 +59,9 @@
                                         <a href="{{asset($product->image_two)}}" class="popup-img venobox" data-gall="myGallery"><i class="fa fa-expand"></i></a>
                                     </div>
                                 </div>
+                                @endif
+
+                                @if (!empty($product->image_three))
                                 <div class="lg-image">
                                     <div class="easyzoom easyzoom--overlay">
                                         <a href="{{asset($product->image_three)}}">
@@ -60,6 +70,9 @@
                                         <a href="{{asset($product->image_three)}}" class="popup-img venobox" data-gall="myGallery"><i class="fa fa-expand"></i></a>
                                     </div>
                                 </div>
+                                @endif
+
+                                @if (!empty($product->image_four))
                                 <div class="lg-image">
                                     <div class="easyzoom easyzoom--overlay">
                                         <a href="{{asset($product->image_four)}}">
@@ -68,13 +81,30 @@
                                         <a href="{{asset($product->image_four)}}" class="popup-img venobox" data-gall="myGallery"><i class="fa fa-expand"></i></a>
                                     </div>
                                 </div>
+                                @endif
                             </div>
                             <div class="product-details-thumbs-2 slider-thumbs-2">
                                 <div class="sm-image"><img src="{{asset($product->image)}}" alt="product image thumb"></div>
-                                <div class="sm-image"><img src="{{asset($product->image_one)}}" alt="product image thumb"></div>
-                                <div class="sm-image"><img src="{{asset($product->image_two)}}" alt="product image thumb"></div>
-                                <div class="sm-image"><img src="{{asset($product->image_three)}}" alt="product image thumb"></div>
-                                <div class="sm-image"><img src="{{asset($product->image_four)}}" alt="product image thumb"></div>
+                                @if (!empty($product->image_one))
+
+                                    <div class="sm-image"><img src="{{asset($product->image_one)}}" alt="product image thumb"></div>
+                                @endif
+                                @if (!empty($product->image_one))
+
+                                    <div class="sm-image"><img src="{{asset($product->image_one)}}" alt="product image thumb"></div>
+                                @endif
+                                @if (!empty($product->image_two))
+
+                                    <div class="sm-image"><img src="{{asset($product->image_two)}}" alt="product image thumb"></div>
+                                @endif
+                                @if (!empty($product->image_three))
+
+                                    <div class="sm-image"><img src="{{asset($product->image_three)}}" alt="product image thumb"></div>
+                                @endif
+                                @if (!empty($product->image_four))
+
+                                    <div class="sm-image"><img src="{{asset($product->image_four)}}" alt="product image thumb"></div>
+                                @endif
                             </div>
                         </div>
                         <!--Product Details Left -->
@@ -133,6 +163,32 @@
                                         <div id="faqCollapse-1" class="collapse" aria-labelledby="faqHeading-1" data-parent="#accordion">
                                             <div class="card-body">
                                                 <p>{!! $product->long_desc !!}</p>
+                                                <div class="table-responsive">
+                                                    <table class="table table-bordered">
+                                                        <tbody>
+                                                        <tr>
+                                                            <th width="120" scope="row">Item Code</th>
+                                                            <td>{{$product->item_code}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Size</th>
+                                                            <td>{{$product->size}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Material</th>
+                                                            <td>{{$product->material}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">CBM</th>
+                                                            <td>{{$product->cbm}}</td>
+                                                        </tr>
+                                                        <tr>
+                                                            <th scope="row">Assembly</th>
+                                                            <td>{{$product->assembly}}</td>
+                                                        </tr>
+                                                        </tbody>
+                                                    </table>
+                                                </div>
                                             </div>
                                         </div>
                                     </div>
@@ -160,7 +216,7 @@
                                         </div>
                                         <div id="faqCollapse-3" class="collapse" aria-labelledby="faqHeading-3" data-parent="#accordion">
                                             <div class="card-body">
-                                                <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here.</p>
+                                                <p>{!! $product->delivery_and_return !!}</p>
                                             </div>
                                         </div>
                                     </div>
@@ -180,7 +236,7 @@
                 <div class="col-lg-6 col-md-6 col-sm-8 col-12 offset-lg-3 offset-md-3 offset-sm-2 text-center">
                     <div class="gym_heading pb-5">
                         <h2>Featured Collection</h2>
-                        <img src="images/heading_border.png" alt="">
+                        <img src="{{asset('assets/frontend/')}}/images/heading_border.png" alt="">
                         <p>Check out our latest collections</p>
                     </div>
                 </div>
@@ -193,7 +249,7 @@
                             <div class="swiper-slide">
                                 <div class="featured_product_section">
                                     <div class="featured_product_img">
-                                        <img src="{{asset($fpro->image)}}" alt=""/>
+                                        <img src="{{asset($fpro->image)}}" style="height: 200px;width: 100%" alt=""/>
                                         <a class="featured_btn btn_1" href="javascript:void(0);">Buy Now</a>
                                     </div>
                                     <a href="{{route('product.details',$fpro->id)}}"><h4 class="featured_product_title">{{$fpro->product_name}}</h4></a>

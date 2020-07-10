@@ -28,7 +28,7 @@
                             <a  href="{{route('login')}}">
                                 <h4> login </h4>
                             </a>
-                            <a class="active" href="{{route('register')}}">
+                            <a class="active" href="{{route('custom.register')}}">
                                 <h4> register </h4>
                             </a>
                         </div>
@@ -36,7 +36,7 @@
                             <div id="lg1" class="tab-pane active">
                                 <div class="login-form-container">
                                     <div class="login-register-form">
-                                        <form action="{{route('register')}}" method="post">
+                                        <form action="{{route('custom.register')}}" method="post">
                                             @csrf
                                             <input type="text" name="user_name" placeholder="Username">
                                             <input type="text" name="name" placeholder="Name">

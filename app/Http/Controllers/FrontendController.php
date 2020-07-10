@@ -254,6 +254,64 @@ Message : {$msg}
 
 
 
+    public function get_product_by_category(Request $request)
+    {
+        $output = '';
+        $id = $request->id;
+        $cat_id = $request->cat_id;
+
+
+        $posts = product::where('category_id',$cat_id)
+            ->orderBy('id','desc')->limit(12)->get();
+
+        if(!$posts->isEmpty())
+        {
+            foreach($posts as $post)
+            {
+                $url = route('product.details',$post->id);
+                $image = $post->image;
+                $name = $post->product_name;
+                $des = $post->long_desc;
+                $body = substr(strip_tags($post->long_desc),0,250);
+                $body .= strlen(strip_tags($post->long_desc))>250?".........":"";
+
+                $output .= '<div class="item col-sm-6 col-md-6 col-lg-4">
+        <div class="thumbnail card border-0 shadow-sm">
+            <a href="'.$url.'" class="img-event">
+                <img class="group list-group-image img-fluid" src="'.$image.'" style="width: 100%" alt="" />
+            </a>
+            <div class="caption card-body">
+                <a href="{{route(\'product.details\',$product->id)}}" class="group card-title inner list-group-item-heading">
+                   '.$name.'</a>
+                <p class="group inner list-group-item-text">
+                    '.$body.'
+                <div class="row mt-3">
+                    <div class="col-xs-12 col-md-6">
+                        <p class="lead">
+
+                    </div>
+                    <div class="col-xs-12 col-md-6 text-right">
+                        <a class="btn btn-main btn-sm" href="'.$url.'"><i class="fab fa-opencart"></i> Add to cart</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>';
+            }
+
+            $output .= '<div class="col-md-12 remove-row">
+                <div class="zui-pager mb-5 mt-3">
+                    <button class="btn btn-success" data-id="'.$post->id.'" id="loadmore">Load More</button>
+                </div>
+            </div>';
+
+            echo $output;
+        }
+    }
+
+
+
+
 
 
 

@@ -92,7 +92,7 @@ class AdminProductController extends Controller
         $new_pro->finish = $request->finish;
         $new_pro->cbm = $request->cbm;
         $new_pro->assembly = $request->assembly;
-        $new_pro->sort_des = $request->sort_des;
+        $new_pro->delivery_and_return = $request->delivery_and_return;
         $new_pro->long_desc = $request->long_desc;
         $new_pro->save();
 
@@ -187,7 +187,7 @@ class AdminProductController extends Controller
         $product->finish = $request->finish;
         $product->cbm = $request->cbm;
         $product->assembly = $request->assembly;
-        $product->sort_des = $request->sort_des;
+        $product->delivery_and_return = $request->delivery_and_return;
         $product->long_desc = $request->long_desc;
         $product->save();
 

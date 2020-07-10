@@ -152,6 +152,10 @@
                                 <input type="file" class="form-control" name="image_five" id="validationCustom01"   required="">
                             </div>
                             <div class="col-md-12 mb-3">
+                                <label for="validationCustom01">Delivery & Returns</label>
+                                <textarea type="text" class="form-control" name="delivery_and_return" id="validationCustom01"   required="">{!! $product->delivery_and_return !!}</textarea>
+                            </div>
+                            <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Product Long Description</label>
                                 <textarea type="text" class="form-control" name="long_desc" id="validationCustom01"   required="">{!! $product->long_desc !!}</textarea>
                             </div>
