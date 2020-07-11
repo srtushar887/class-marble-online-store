@@ -20,7 +20,7 @@ class AdminCategoryController extends Controller
         $new_cat = new category();
         if($request->hasFile('cat_image')){
 //            @unlink($home->back_image);
-            $image = $request->file('category');
+            $image = $request->file('cat_image');
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('cat_image');
             $directory = 'assets/admin/images/category/';
             $imgUrl  = $directory.$imageName;

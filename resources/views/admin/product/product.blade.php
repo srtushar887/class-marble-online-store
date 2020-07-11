@@ -31,6 +31,7 @@
                             <thead>
                             <tr>
                                 <th>Product Name</th>
+                                <th>Product Code</th>
                                 <th>Product Image</th>
                                 <th>Action</th>
                             </tr>
@@ -39,6 +40,7 @@
                             @foreach($rpoducts as $product)
                                 <tr>
                                     <td>{{$product->product_name}}</td>
+                                    <td>{{$product->item_code}}</td>
                                     <td><img src="{{asset($product->image)}}" style="height: 50px;width: 50px;"></td>
                                     <td>
                                         <a href="{{route('admin.edit.product',$product->id)}}">

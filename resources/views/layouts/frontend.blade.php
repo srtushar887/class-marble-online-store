@@ -70,28 +70,28 @@
                             <!-- Header Menus -->
                             <div class="gym_nav_items main_menu_wrapper text-right">
                                 <ul>
-                                    <li class="has_submenu active">
+                                    <li class="has_submenu {{ Request::is('/') ? 'active' : '' }}">
                                         <a href="{{route('front')}}">Home</a>
                                     </li>
-                                    <li><a href="">About Us</a></li>
-                                    @guest
-                                    <li class="has_submenu">
-                                        <a href="{{route('login')}}">Products</a>
-                                        </li>
-                                    @else
-                                        <li class="has_submenu">
+                                    <li class="{{ Request::is('about-us') ? 'active' : '' }}"><a href="{{route('about.us')}}">About Us</a></li>
+                                        <li class="{{ Request::is('home/all-products') ? 'active' : '' }}">
                                             <a href="{{route('all.products')}}">Products</a>
                                         </li>
-                                    @endguest
 
                                     <li><a href="">Virtual Tour</a></li>
-                                    <li><a href="{{route('contact')}}">Contact</a></li>
+                                    <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
                                     @guest
-                                    <li class="has_submenu">
+                                        @if (Request::is('login'))
+                                            <li class="has_submenu active">
+                                        @elseif(Request::is('register'))
+                                            <li class="has_submenu active">
+                                        @else
+                                            <li class="has_submenu">
+                                        @endif
                                         <a href="javascript:void(0);">Account</a>
                                         <ul class="sub_menu">
-                                            <li><a href="{{route('login')}}">Login</a></li>
-                                            <li><a href="{{route('register')}}">Register</a></li>
+                                            <li class="{{ Request::is('login') ? 'active' : '' }}"><a href="{{route('login')}}">Login</a></li>
+                                            <li class="{{ Request::is('register') ? 'active' : '' }}"><a href="{{route('register')}}">Register</a></li>
                                         </ul>
                                     </li>
                                     @else
@@ -124,7 +124,7 @@
                                     <li class="gym_cart_open relative">
                                         <a class="ml-2" href="javascript:void(0);">
                                             <i class="fab fa-opencart"></i>
-                                            <span>Bag ({{$carts_count}})</span></a>
+                                            <span>Wishlist ({{$carts_count}})</span></a>
                                         <div class="gym_cart_box">
 
 
@@ -172,25 +172,18 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
-                            <div class="widgets footer_about">
-                                <!-- <img class="footer_logo" src="assets/images/index7/footer_logo.png" alt="" /> -->
-                                <h4 class="mb-4"><img src="{{asset($gn->logo)}}" style="height: 200px;width: 100%"></h4>
-                                <p>{!! $gn->footer_content !!}</p>
-                            </div>
-                        </div>
-                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
                             <div class="widgets footer_menu">
                                 <div class="footer_title">
                                     <h4 class="footer_heading">Company</h4>
                                     <img src="{{asset('assets/frontend/')}}/images/heading_border_half.png" alt="" />
                                 </div>
                                 <ul>
-                                    <li><a href="">Privacy Policy</a></li>
-                                    <li><a href="{{route('contact')}}">Get In Touch</a></li>
+                                    <li><a href="{{route('terms.condition')}}">Terms And Condition</a></li>
+                                    <li><a href="{{route('faq')}}">Faq</a></li>
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
                             <div class="widgets footer_menu">
                                 <div class="footer_title">
                                     <h4 class="footer_heading">Categories</h4>
@@ -206,18 +199,14 @@
                                 </ul>
                             </div>
                         </div>
-                        <div class="col-xl-2 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
+                        <div class="col-xl-3 col-lg-4 col-md-6 col-sm-12 col-12 mb_30">
                             <div class="widgets footer_menu">
                                 <div class="footer_title">
                                     <h4 class="footer_heading">Helps Desk</h4>
                                     <img src="{{asset('assets/frontend/')}}/images/heading_border_half.png" alt="" />
                                 </div>
                                 <ul>
-                                    <li><a href="">Customer Care</a></li>
-                                    <li><a href="">Services</a></li>
-                                    <li><a href="">Legal Help</a></li>
-                                    <li><a href="">Our Project</a></li>
-                                    <li><a href="">Contact Us</a></li>
+                                    <li><a href="{{route('contact')}}">Contact Us</a></li>
                                     <li><a href="">Meet With Us</a></li>
                                 </ul>
                             </div>
@@ -285,6 +274,10 @@
 
 
         <script src="{{asset('assets/frontend/')}}/js/custom.js"></script>
+
+        @yield('js')
+
+
         <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
         @include('layouts.message')
         <script>
@@ -333,6 +326,6 @@
                 });
             }
         </script>
-        @yield('js')
+
 </body>
 </html>

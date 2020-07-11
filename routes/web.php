@@ -14,24 +14,22 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/','FrontendController@index')->name('front');
-Route::get('/all-products','FrontendController@all_products')->name('all.products');
-Route::get('/category-products/{id}','FrontendController@category_products')->name('category.product');
-Route::get('/product-details/{id}','FrontendController@product_details')->name('product.details');
-Route::get('/add-card-single/{id}','FrontendController@add_cart_single')->name('add.cart.single');
-Route::post('/add-card-multiple','FrontendController@add_cart_multiple')->name('add.cart.multiple');
-Route::get('/remove-card-single/{id}','FrontendController@remove_cart_single')->name('remove.item.cart');
-Route::get('/view-cart','FrontendController@view_cart')->name('view.cart');
-Route::get('/cart-update','FrontendController@cart_update')->name('cart.update.checkout');
+Route::get('/about-us','FrontendController@about_us')->name('about.us');
+Route::get('/terms-condition','FrontendController@privacy_policy')->name('terms.condition');
+Route::get('/faq','FrontendController@faq')->name('faq');
+//Route::get('/all-products','FrontendController@all_products')->name('all.products');
+//Route::get('/category-products/{id}','FrontendController@category_products')->name('category.product');
+//Route::get('/product-details/{id}','FrontendController@product_details')->name('product.details');
+//Route::get('/add-card-single/{id}','FrontendController@add_cart_single')->name('add.cart.single');
+//Route::post('/add-card-multiple','FrontendController@add_cart_multiple')->name('add.cart.multiple');
+//Route::get('/remove-card-single/{id}','FrontendController@remove_cart_single')->name('remove.item.cart');
+//Route::get('/view-cart','FrontendController@view_cart')->name('view.cart');
+//Route::get('/cart-update','FrontendController@cart_update')->name('cart.update.checkout');
 Route::get('/contact','FrontendController@contact')->name('contact');
 Route::post('/contact-send','FrontendController@contact_send')->name('contact.main.send');
-Route::get('/category-product/{id}','FrontendController@category_product')->name('category.prodyuct');
+Route::post('/newslatter-send','FrontendController@newslater_send')->name('newslater.send');
+//Route::get('/category-product/{id}','FrontendController@category_product')->name('category.prodyuct');
 
-//frontend filter
-Route::post('/get-all-product','FrontendController@load_more')->name('load_more');
-Route::post('/get-all-product-category-product','FrontendController@load_more_category')->name('load_more.category');
-
-//get product bt caregory
-Route::post('/get-product-by-category','FrontendController@get_product_by_category')->name('get.product.by.category');
 
 //custom register
 Route::post('/custom-register','CustomLoginController@register')->name('custom.register');
@@ -101,6 +99,9 @@ Route::group(['middleware' => ['auth:admin']], function() {
         Route::post('/home-partner-update', 'Admin\AdminFrontendController@home_partner_update')->name('admin.partner.update');
         Route::post('/home-partner-delete', 'Admin\AdminFrontendController@home_partner_delete')->name('admin.partner.delete');
 
+        //newslatter email
+        Route::get('/newslatter-emails', 'Admin\AdminFrontendController@newslatter_emails')->name('admin.newslatter');
+
 
 
     });
@@ -118,6 +119,36 @@ Route::group(['middleware' => ['auth','uStatus','uAccDis']], function() {
         //checkout
         Route::get('/checkout', 'UserController@checkout')->name('checkout');
         Route::post('/checkout-save', 'UserController@checkout_save')->name('user.checkout.save');
+
+
+
+        Route::get('/all-products','UserFrontendController@all_products')->name('all.products');
+        Route::get('/category-products/{id}','UserFrontendController@category_products')->name('category.product');
+        Route::get('/product-details/{id}','UserFrontendController@product_details')->name('product.details');
+        Route::get('/add-card-single/{id}','UserFrontendController@add_cart_single')->name('add.cart.single');
+        Route::post('/add-card-multiple','UserFrontendController@add_cart_multiple')->name('add.cart.multiple');
+        Route::get('/remove-card-single/{id}','UserFrontendController@remove_cart_single')->name('remove.item.cart');
+        Route::get('/view-cart','UserFrontendController@view_cart')->name('view.cart');
+        Route::get('/cart-update','UserFrontendController@cart_update')->name('cart.update.checkout');
+        Route::get('/category-product/{id}','UserFrontendController@category_product')->name('category.prodyuct');
+
+
+        //frontend filter
+        Route::post('/get-all-product','UserFrontendController@load_more')->name('load_more');
+        Route::post('/get-all-product-category-product','UserFrontendController@load_more_category')->name('load_more.category');
+
+        //get product bt caregory
+        Route::post('/get-product-by-category','UserFrontendController@get_product_by_category')->name('get.product.by.category');
+        Route::post('/get-search-load-more-category','UserFrontendController@category_searcg_load_more')->name('category.search.loadmore.ajax');
+
+        //get product by tag
+        Route::post('/get-product-by-tag','UserFrontendController@get_product_by_tag')->name('get.product.by.tag');
+        Route::post('/get-product-by-tag-load-more','UserFrontendController@get_product_by_tag_load_more')->name('tag.search.loadmore.ajax');
+
+
+
+
+
 
     });
 });

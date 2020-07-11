@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\all_static_data;
 use App\home_partner;
 use App\Http\Controllers\Controller;
+use App\newslatter;
 use Illuminate\Http\Request;
 use Intervention\Image\Facades\Image;
 
@@ -114,6 +115,13 @@ class AdminFrontendController extends Controller
         $partner_delete->delete();
         return back()->with('success','Home Partner Successfully Deleted');
     }
+
+    public function newslatter_emails()
+    {
+        $emails = newslatter::orderBy('id','desc')->get();
+        return view('admin.frontend.newsLatterEmail',compact('emails'));
+    }
+
 
 
 

@@ -221,47 +221,6 @@
                                             <!-- Payment Method -->
                                             <div class="col-12">
 
-                                                <h4 class="checkout-title">Payment Method</h4>
-
-                                                <div class="checkout-payment-method">
-
-                                                    <div class="single-method">
-                                                        <input type="radio" id="payment_check" name="payment-method" value="check">
-                                                        <label for="payment_check">Check Payment</label>
-                                                        <p data-method="check" style="display: none;">Please send a Check to Store name with Store Street, Store Town, Store State, Store Postcode, Store Country.</p>
-                                                    </div>
-
-                                                    <div class="single-method">
-                                                        <input type="radio" id="payment_bank" name="payment-method" value="bank">
-                                                        <label for="payment_bank">Direct Bank Transfer</label>
-                                                        <p data-method="bank" style="display: none;">Please send a Check to Store name with Store Street, Store Town, Store State, Store Postcode, Store Country.</p>
-                                                    </div>
-
-                                                    <div class="single-method">
-                                                        <input type="radio" id="payment_cash" name="payment-method" value="cash">
-                                                        <label for="payment_cash">Cash on Delivery</label>
-                                                        <p data-method="cash" style="display: none;">Please send a Check to Store name with Store Street, Store Town, Store State, Store Postcode, Store Country.</p>
-                                                    </div>
-
-                                                    <div class="single-method">
-                                                        <input type="radio" id="payment_paypal" name="payment-method" value="paypal">
-                                                        <label for="payment_paypal">Paypal</label>
-                                                        <p data-method="paypal" style="display: block;">Please send a Check to Store name with Store Street, Store Town, Store State, Store Postcode, Store Country.</p>
-                                                    </div>
-
-                                                    <div class="single-method">
-                                                        <input type="radio" id="payment_payoneer" name="payment-method" value="payoneer">
-                                                        <label for="payment_payoneer">Payoneer</label>
-                                                        <p data-method="payoneer">Please send a Check to Store name with Store Street, Store Town, Store State, Store Postcode, Store Country.</p>
-                                                    </div>
-
-                                                    <div class="single-method">
-                                                        <input type="checkbox" id="accept_terms">
-                                                        <label for="accept_terms">I’ve read and accept the terms &amp; conditions</label>
-                                                    </div>
-
-                                                </div>
-
                                                 @if ($carts_count > 0)
                                                 <button class="new_btn mb-4">Place order</button>
                                                 @endif

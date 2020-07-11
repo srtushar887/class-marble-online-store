@@ -75,7 +75,7 @@
 
             <div class="navbar-brand-box">
                 <a href="index.html" class="logo">
-                    <img src="{{asset('assets/admin/')}}/images/logo-light.png" />
+                    <img src="{{asset($gn->logo)}}" style="height: 58px;width: 168px;" />
                 </a>
             </div>
 
@@ -116,17 +116,16 @@
                         <a href="{{route('admin.order')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>User Order</span></a>
                     </li>
 
-
-
-
-
-
                     <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="bx bx-file"></i><span>Frontend Control</span></a>
                         <ul class="sub-menu" aria-expanded="false">
                             <li><a href="{{route('admin.slider')}}">Home Header</a></li>
                             <li><a href="{{route('admin.home.partner')}}">Home Partner Section</a></li>
                         </ul>
+                    </li>
+
+                    <li>
+                        <a href="{{route('admin.newslatter')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>Newslatter Email</span></a>
                     </li>
 
 
@@ -156,11 +155,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        2020 © Lunoz.
+                        <?php
+                            $date = \Carbon\Carbon::now()->format('Y');
+                        ?>
+                        {{$date}} © {{$gn->site_name}}.
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-right d-none d-sm-block">
-                            Design & Develop by Myra
+
                         </div>
                     </div>
                 </div>

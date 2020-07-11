@@ -42,8 +42,19 @@
                                     <div class="login-register-form">
                                         <form action="{{route('login')}}" method="post">
                                             @csrf
-                                            <input type="text" name="email" placeholder="Email">
-                                            <input type="password" name="password" placeholder="Password">
+                                            <input type="email" class="form-control @error('email') is-invalid @enderror" name="email" placeholder="Email" required>
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            @enderror
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password" required>
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            <br>
+                                            @enderror
                                             <div class="button-box">
                                                 <div class="login-toggle-btn">
                                                     <input type="checkbox" id="remember">

@@ -143,7 +143,7 @@
                                         <div class="delivery-message"><p>ORDER NOW AND RECEIVE BY FRIDAY 28TH AUGUST</p></div>
                                         <div class="actions">
                                             <button type="submit" title="Add to Basket" class="action primary tocart" id="product-addtocart-button">
-                                                <span>Add to Basket</span>
+                                                <span>Add to Wishlist</span>
                                             </button>
 
                                         </div>
@@ -192,34 +192,8 @@
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="card">
-                                        <div class="card-header" id="faqHeading-2">
-                                            <div class="mb-0">
-                                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-2" data-aria-expanded="false" data-aria-controls="faqCollapse-2">
-                                                    <span class="badge">2</span> Size & Specification
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <div id="faqCollapse-2" class="collapse" aria-labelledby="faqHeading-2" data-parent="#accordion">
-                                            <div class="card-body">
-                                                <p>{{$product->size}}</p>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="card">
-                                        <div class="card-header" id="faqHeading-3">
-                                            <div class="mb-0">
-                                                <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-3" data-aria-expanded="false" data-aria-controls="faqCollapse-3">
-                                                    <span class="badge">3</span>Delivery & Returns
-                                                </h5>
-                                            </div>
-                                        </div>
-                                        <div id="faqCollapse-3" class="collapse" aria-labelledby="faqHeading-3" data-parent="#accordion">
-                                            <div class="card-body">
-                                                <p>{!! $product->delivery_and_return !!}</p>
-                                            </div>
-                                        </div>
-                                    </div>
+
+
                                 </div>
                             </div>
                         </div>

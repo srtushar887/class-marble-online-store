@@ -24,7 +24,7 @@
             <div class="row">
                 <div class="col-sm-8">
                     <div class="form-group w-auto float-left mr-3">
-                        <label class="form-control-label">CATEGORIES</label>
+                        <label class="form-control-label">ITEMS</label>
                         <select id="user_time_zonea" name="product_type" class="form-control categoriedchange" >
                             <option value="0">-- SELECT ANY --</option>
                             <?php
@@ -35,10 +35,11 @@
                             @endforeach
 
                         </select>
+                        <input type="hidden" class="inptcatid" value="0">
                     </div>
                     <div class="form-group w-auto float-left">
-                        <label class="form-control-label">TAGS</label>
-                        <select id="user_time_zone" name="product_type" class="form-control" size="0" data-parsley-id="59">
+                        <label class="form-control-label">COLLECTIONS</label>
+                        <select id="user_time_zone" name="product_type" class="form-control tagselect" size="0" data-parsley-id="59">
                             <option value="0">-- SELECT ANY --</option>
                             <?php
                                 $tags = \App\tag::all();
@@ -47,6 +48,7 @@
                             <option value="{{$ag->id}}">{{$ag->tag_name}}</option>
                             @endforeach
                         </select>
+                        <input type="hidden" class="inpttagid" value="0">
                     </div>
                 </div>
                 <div class="col-sm-4 my-3">
@@ -98,13 +100,11 @@
                         </div>
                     </div>
                 @endforeach
-
-
             </div>
 
-            <div class="col-md-12 remove-row">
+            <div class="col-md-12 remove-row ">
                 <div class="zui-pager mb-5 mt-3">
-                    <button class="btn btn-success" data-id="{{ $product->id }}" id="loadmore">Load More</button>
+                    <button class="btn btn-success normalloadmore" data-id="{{ $product->id }}" id="loadmore">Load More</button>
                 </div>
             </div>
         </div>
@@ -112,17 +112,87 @@
 @stop
 @section('js')
     <script>
+
         $(document).ready(function() {
             $('#list').click(function(event){event.preventDefault();$('#products .item').addClass('list-group-item');});
             $('#grid').click(function(event){event.preventDefault();$('#products .item').removeClass('list-group-item');$('#products .item').addClass('grid-group-item');});
+
+
+
+            $('.categoriedchange').change(function () {
+
+                var cat_id = $(this).val();
+                $('.inptcatid').val(cat_id);
+
+                $.ajax({
+                    url : '{{ route('get.product.by.category') }}',
+                    method : "POST",
+                    data : {cat_id:cat_id, _token:"{{csrf_token()}}"},
+                    dataType : "text",
+                    success : function (data)
+                    {
+
+
+                        if(data != '')
+                        {
+                            $('.remove-row').remove();
+                            $('.product').empty().append(data);
+                        }
+                        else
+                        {
+                            $('.product').empty();
+                            $('#loadmore').html("No Data");
+                        }
+                    }
+                });
+
+            });
+
+
+            $('.tagselect').change(function () {
+
+                console.log('paisi')
+
+
+                var tag_id = $(this).val();
+                $('.inpttagid').val(tag_id);
+
+
+                $.ajax({
+                    url : '{{ route('get.product.by.tag') }}',
+                    method : "POST",
+                    data : {tag_id:tag_id, _token:"{{csrf_token()}}"},
+                    dataType : "text",
+                    success : function (data)
+                    {
+                        console.log(data)
+                        if(data != '')
+                        {
+                            $('.remove-row').remove();
+                            $('.product').empty().append(data);
+                        }
+                        else
+                        {
+                            $('.product').empty();
+                            $('#normalloadmoretag').html("No Data");
+                        }
+                    }
+                });
+
+            });
+
+
+
+
+
         });
         </script>
 
     <script>
 
         $(document).on('click','#loadmore',function(){
+
             var id = $(this).data('id');
-            $("#loadmore").html("Loading....");
             $.ajax({
                 url : '{{ route('load_more') }}',
                 method : "POST",
@@ -140,48 +210,73 @@
                     }
                     else
                     {
+                        $('.product').empty();
                         $('#loadmore').html("No Data");
                     }
                 }
             });
-
-
-
-            $('#user_time_zonea').change(function () {
-
-                console.log('paisi');
-
-                var id = $(this).data('id');
-                var cat_id = $(this).val();
-                $("#loadmore").html("Loading....");
-                $.ajax({
-                    url : '{{ route('get.product.by.category') }}',
-                    method : "POST",
-                    data : {id:id,cat_id:cat_id, _token:"{{csrf_token()}}"},
-                    dataType : "text",
-                    success : function (data)
-                    {
-
-                        console.log(data)
-
-                        if(data != '')
-                        {
-                            $('.remove-row').remove();
-                            $('.product').empty().append(data);
-                        }
-                        else
-                        {
-                            $('#loadmore').html("No Data");
-                        }
-                    }
-            });
-
-            });
-
-
-
-
         });
+
+
+        $(document).on('click','#normalloadmore',function(){
+
+            var cat_id = $('.inptcatid').val();
+
+            $.ajax({
+                url : '{{ route('category.search.loadmore.ajax') }}',
+                method : "POST",
+                data : {cat_id:cat_id, _token:"{{csrf_token()}}"},
+                dataType : "text",
+                success : function (data)
+                {
+
+                    // console.log(data)
+
+                    if(data != '')
+                    {
+                        $('.remove-row').remove();
+                        $('.product').append(data);
+                    }
+                    else
+                    {
+                        $('.product').empty();
+                        $('#normalloadmore').html("No Data");
+                    }
+                }
+            });
+        });
+
+
+
+
+        $(document).on('click','#normalloadmoretag',function(){
+
+            var tag_id = $('.inpttagid').val();
+
+            $.ajax({
+                url : '{{ route('tag.search.loadmore.ajax') }}',
+                method : "POST",
+                data : {tag_id:tag_id, _token:"{{csrf_token()}}"},
+                dataType : "text",
+                success : function (data)
+                {
+
+                    // console.log(data)
+
+                    if(data != '')
+                    {
+                        $('.remove-row').remove();
+                        $('.product').append(data);
+                    }
+                    else
+                    {
+                        $('.product').empty();
+                        $('#normalloadmoretag').html("No Data");
+                    }
+                }
+            });
+        });
+
     </script>
 
 @stop

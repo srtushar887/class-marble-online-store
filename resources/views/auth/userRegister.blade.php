@@ -38,15 +38,71 @@
                                     <div class="login-register-form">
                                         <form action="{{route('custom.register')}}" method="post">
                                             @csrf
-                                            <input type="text" name="user_name" placeholder="Username">
-                                            <input type="text" name="name" placeholder="Name">
-                                            <input type="text" name="email" placeholder="Email">
-                                            <input type="text" name="phone" placeholder="Phone">
-                                            <input type="text" name="company_name" placeholder="Company Name">
-                                            <input type="text" name="skype_id" placeholder="Skype ID(optional)">
-                                            <input type="text" name="whatapp_ap" placeholder="Whats app Number(optional)">
-                                            <input type="password" name="password" placeholder="Password">
-                                            <input type="password" name="password_confirmation" placeholder="Confirm Password">
+                                            <input type="text" class="form-control @error('user_name') is-invalid @enderror" value="{{ old('user_name') }}" name="user_name" placeholder="Username">
+                                            @error('user_name')
+                                            <span class="invalid-feedback" style="margin-top: -5px;" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            <br>
+                                            @enderror
+
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('name') }}" name="name" placeholder="Name">
+                                            @error('name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            <br>
+                                            @enderror
+
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('email') }}" name="email" placeholder="Email">
+                                            @error('email')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            <br>
+                                            @enderror
+
+                                            <input type="text" class="form-control @error('name') is-invalid @enderror" value="{{ old('phone') }}" name="phone" placeholder="Phone">
+                                            @error('phone')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            <br>
+                                            @enderror
+
+                                            <input type="text" class="form-control @error('company_name') is-invalid @enderror" value="{{ old('company_name') }}" name="company_name" placeholder="Company Name">
+                                            @error('company_name')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            <br>
+                                            @enderror
+
+                                            <input type="text" class="form-control @error('skype_id') is-invalid @enderror" value="{{ old('skype_id') }}" name="skype_id" placeholder="Skype ID(optional)">
+                                            @error('skype_id')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            <br>
+                                            @enderror
+
+                                            <input type="text" class="form-control @error('whatapp_ap') is-invalid @enderror" value="{{ old('whatapp_ap') }}" name="whatapp_ap" placeholder="Whats app Number(optional)">
+                                            @error('whatapp_ap')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            <br>
+                                            @enderror
+
+                                            <input type="password" class="form-control @error('password') is-invalid @enderror" name="password" placeholder="Password">
+                                            @error('password')
+                                            <span class="invalid-feedback" role="alert">
+                                                <strong>{{ $message }}</strong>
+                                            </span>
+                                            <br>
+                                            @enderror
+
+                                            <input type="password" class="form-control " name="password_confirmation" placeholder="Confirm Password">
                                             <div class="button-box">
                                                 <div class="login-toggle-btn">
                                                     <input type="checkbox" id="remember">

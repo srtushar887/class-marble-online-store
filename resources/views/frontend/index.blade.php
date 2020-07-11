@@ -88,13 +88,13 @@
                 </div>
 
                 <?php
-                $cat_1 = \App\category::inRandomOrder()->limit(1)->get();
+                $cat_1 = \App\category::where('is_featured',1)->orderBy('id','desc')->limit(4)->get();
                 ?>
                 @foreach($cat_1 as $cat1)
 
-                    <div class="col-lg-7 col-md-12 col-sm-12 pb-4">
+                    <div class="col-lg-6 col-md-6 col-sm-6 pb-4">
                     <div class="banner-wrap">
-                            <img src="{{asset($cat1->cat_image)}}" alt="banner">
+                            <img src="{{asset($cat1->cat_image)}}" style="height: 400px;" alt="banner">
                         <div class="banner-content">
                             <h2>{{$cat1->category_name}}</h2>
                             <a href="{{route('category.prodyuct',$cat1->id)}}">Shop Now</a>
@@ -102,56 +102,57 @@
                     </div>
                 </div>
                 @endforeach
-                <?php
-                $cat_2 = \App\category::inRandomOrder()->limit(1)->get();
-                ?>
-                @foreach($cat_2 as $cat2)
-                <div class="col-lg-5 col-md-6 col-sm-6 pb-4">
-                    <div class="banner-wrap">
-                        <a href="{{route('category.prodyuct',$cat2->id)}}">
-                            <img src="{{asset($cat1->cat_image)}}" alt="banner">
-                        </a>
-                        <div class="banner-content">
-                            <h2>{{$cat2->category_name}}</h2>
-                            <a href="{{route('category.prodyuct',$cat2->id)}}">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+{{--                <?php--}}
+{{--                $cat_2 = \App\category::where('is_featured',1)->inRandomOrder()->limit(1)--}}
+{{--                    ->get();--}}
+{{--                ?>--}}
+{{--                @foreach($cat_2 as $cat2)--}}
+{{--                <div class="col-lg-5 col-md-6 col-sm-6 pb-4">--}}
+{{--                    <div class="banner-wrap">--}}
+{{--                        <a href="{{route('category.prodyuct',$cat2->id)}}">--}}
+{{--                            <img src="{{asset($cat1->cat_image)}}" alt="banner">--}}
+{{--                        </a>--}}
+{{--                        <div class="banner-content">--}}
+{{--                            <h2>{{$cat2->category_name}}</h2>--}}
+{{--                            <a href="{{route('category.prodyuct',$cat2->id)}}">Shop Now</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                @endforeach--}}
 
-                <?php
-                $cat_3 = \App\category::inRandomOrder()->limit(1)->get();
-                ?>
-                @foreach($cat_3 as $cat3)
+{{--                <?php--}}
+{{--                $cat_3 = \App\category::where('is_featured',1)->inRandomOrder()->limit(1)->get();--}}
+{{--                ?>--}}
+{{--                @foreach($cat_3 as $cat3)--}}
 
-                <div class="col-lg-5 col-md-6 col-sm-6 pb-4">
-                    <div class="banner-wrap">
-                        <a href="{{route('category.prodyuct',$cat3->id)}}">
-                            <img src="{{asset($cat3->cat_image)}}" alt="banner">
-                        </a>
-                        <div class="banner-content">
-                            <h2>{{$cat3->category_name}}</h2>
-                            <a href="{{route('category.prodyuct',$cat3->id)}}">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+{{--                <div class="col-lg-5 col-md-6 col-sm-6 pb-4">--}}
+{{--                    <div class="banner-wrap">--}}
+{{--                        <a href="{{route('category.prodyuct',$cat3->id)}}">--}}
+{{--                            <img src="{{asset($cat3->cat_image)}}" alt="banner">--}}
+{{--                        </a>--}}
+{{--                        <div class="banner-content">--}}
+{{--                            <h2>{{$cat3->category_name}}</h2>--}}
+{{--                            <a href="{{route('category.prodyuct',$cat3->id)}}">Shop Now</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                @endforeach--}}
 
-                <?php
-                $cat_4 = \App\category::inRandomOrder()->limit(1)->get();
-                ?>
-                @foreach($cat_4 as $cat4)
+{{--                <?php--}}
+{{--                $cat_4 = \App\category::where('is_featured',1)->inRandomOrder()->limit(1)->get();--}}
+{{--                ?>--}}
+{{--                @foreach($cat_4 as $cat4)--}}
 
-                <div class="col-lg-7 col-md-12 col-sm-12 pb-4">
-                    <div class="banner-wrap">
-                        <img src="{{asset($cat4->cat_image)}}" alt="banner">
-                        <div class="banner-content">
-                            <h2>{{$cat4->category_name}}</h2>
-                            <a href="{{route('category.prodyuct',$cat4->id)}}">Shop Now</a>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
+{{--                <div class="col-lg-7 col-md-12 col-sm-12 pb-4">--}}
+{{--                    <div class="banner-wrap">--}}
+{{--                        <img src="{{asset($cat4->cat_image)}}" alt="banner">--}}
+{{--                        <div class="banner-content">--}}
+{{--                            <h2>{{$cat4->category_name}}</h2>--}}
+{{--                            <a href="{{route('category.prodyuct',$cat4->id)}}">Shop Now</a>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                @endforeach--}}
             </div>
         </div>
     </section>
@@ -268,10 +269,11 @@
                 </div>
                 <div class="col-lg-7 col-md-12 col-sm-12 col-12 mb_30">
                     <div class="newsletter_form">
-                        <form>
+                        <form action="{{route('newslater.send')}}" method="post">
+                            @csrf
                             <div class="subscribe_holder">
-                                <input type="text" placeholder="Enter Your Email Here">
-                                <a href="javascript:void(0);" class="my_btn text_white">Submit Now</a>
+                                <input type="email" name="email" placeholder="Enter Your Email Here" required>
+                                <button type="submit" class="my_btn text_white">Submit Now</button>
                             </div>
                         </form>
                     </div>

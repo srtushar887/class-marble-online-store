@@ -91,27 +91,27 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Product Image One</label>
-                                <input type="file" class="form-control" name="image_one" id="validationCustom01"   required="">
+                                <input type="file" class="form-control" name="image_one" id="validationCustom01"   >
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Product Image Two</label>
-                                <input type="file" class="form-control" name="image_two" id="validationCustom01"   required="">
+                                <input type="file" class="form-control" name="image_two" id="validationCustom01"   >
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Product Image Three</label>
-                                <input type="file" class="form-control" name="image_three" id="validationCustom01"   required="">
+                                <input type="file" class="form-control" name="image_three" id="validationCustom01"   >
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Product Image Four</label>
-                                <input type="file" class="form-control" name="image_four" id="validationCustom01"   required="">
+                                <input type="file" class="form-control" name="image_four" id="validationCustom01"   >
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Product Image Five</label>
-                                <input type="file" class="form-control" name="image_five" id="validationCustom01"   required="">
+                                <input type="file" class="form-control" name="image_five" id="validationCustom01"   >
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Delivery & Returns</label>
-                                <textarea type="text" class="form-control" name="delivery_and_return" id="validationCustom01"   required=""></textarea>
+                                <textarea type="text" class="form-control" name="delivery_and_return" id="validationCustom01"   ></textarea>
                             </div>
                             <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Product Long Description</label>

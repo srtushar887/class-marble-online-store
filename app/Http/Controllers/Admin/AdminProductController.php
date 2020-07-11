@@ -33,7 +33,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $new_pro->image = $imgUrl;
         }
 
@@ -42,7 +42,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_one');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $new_pro->image_one = $imgUrl;
         }
 
@@ -51,7 +51,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_two');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $new_pro->image_two = $imgUrl;
         }
 
@@ -60,7 +60,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_three');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $new_pro->image_three = $imgUrl;
         }
 
@@ -69,7 +69,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_four');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $new_pro->image_four = $imgUrl;
         }
 
@@ -78,7 +78,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_five');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $new_pro->image_five = $imgUrl;
         }
 
@@ -121,7 +121,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $product->image = $imgUrl;
         }
 
@@ -132,7 +132,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_one');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $product->image_one = $imgUrl;
         }
 
@@ -142,7 +142,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_two');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $product->image_two = $imgUrl;
         }
 
@@ -152,7 +152,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_three');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $product->image_three = $imgUrl;
         }
 
@@ -162,7 +162,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_four');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $product->image_four = $imgUrl;
         }
 
@@ -172,7 +172,7 @@ class AdminProductController extends Controller
             $imageName = uniqid().time().'.'.$image->getClientOriginalName('image_five');
             $directory = 'assets/admin/images/product/';
             $imgUrl  = $directory.$imageName;
-            Image::make($image)->save($imgUrl);
+            Image::make($image)->resize(600,600)->save($imgUrl);
             $product->image_five = $imgUrl;
         }
 

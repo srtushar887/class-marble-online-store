@@ -23,7 +23,7 @@
     <section class="contact-main-page">
         <div class="google-map_area">
             <div class="container-fluid">
-                <div style="width: 100%"><iframe width="100%" height="600" src="https://maps.google.com/maps?width=100%&amp;height=600&amp;hl=en&amp;coord=27.1725&amp;q=Thanamod%20Chomu%20Jaipur+(DesignAim)&amp;ie=UTF8&amp;t=&amp;z=14&amp;iwloc=B&amp;output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"><a href="http://www.gps.ie/">Find my location</a></iframe></div><br />
+                <div style="width: 100%"><iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3557.2689799293084!2d75.798784!3d26.926686!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x5dae93bb84f1c571!2sLaxmi%20International%20Exports!5e0!3m2!1sen!2sus!4v1594451422138!5m2!1sen!2sus" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>/div><br />
             </div>
         </div>
         <div class="container">

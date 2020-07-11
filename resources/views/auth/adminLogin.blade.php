@@ -6,14 +6,14 @@
 <!-- Mirrored from myrathemes.com/lunoz/layouts/vertical/pages-login.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 20 Jun 2020 03:56:42 GMT -->
 <head>
     <meta charset="utf-8" />
-    <title>Lunoz - Admin & Dashboard Template</title>
+    <title>{{$gn->site_name}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="MyraStudio" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('assets/admin/')}}/images/favicon.ico">
+    <link rel="shortcut icon" href="{{asset($gn->icon)}}">
 
     <!-- App css -->
     <link href="{{asset('assets/admin/')}}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -36,7 +36,7 @@
                                     <div class="card-body">
                                         <div class="text-center mb-4 mt-3">
                                             <a href="index.html">
-                                                <span><img src="{{asset('assets/admin/')}}/images/logo-dark.png" alt="" height="26"></span>
+                                                <span><img src="{{asset($gn->logo)}}" style="height: 87px;width: 217px;" alt="" ></span>
                                             </a>
                                         </div>
                                         <form action="{{route('admin.login.submit')}}" method="post" class="p-2">
@@ -51,12 +51,6 @@
                                                 <input class="form-control" name="password" type="password" required="" id="password" placeholder="Enter your password">
                                             </div>
 
-                                            <div class="form-group mb-4 pb-3">
-                                                <div class="custom-control custom-checkbox checkbox-primary">
-                                                    <input type="checkbox" class="custom-control-input" id="checkbox-signin">
-                                                    <label class="custom-control-label" for="checkbox-signin">Remember me</label>
-                                                </div>
-                                            </div>
                                             <div class="mb-3 text-center">
                                                 <button class="btn btn-primary btn-block" type="submit"> Sign In </button>
                                             </div>
@@ -66,11 +60,6 @@
                                 </div>
                                 <!-- end card -->
 
-                                <div class="row mt-4">
-                                    <div class="col-sm-12 text-center">
-                                        <p class="text-white-50 mb-0">Create an account? <a href="pages-register.html" class="text-white-50 ml-1"><b>Sign Up</b></a></p>
-                                    </div>
-                                </div>
 
                             </div>
                             <!-- end col -->

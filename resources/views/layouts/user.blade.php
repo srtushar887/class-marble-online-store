@@ -58,9 +58,14 @@
                             <span>Change Password</span>
                         </a>
                         <a class="dropdown-item d-flex align-items-center justify-content-between"
-                           href="{{route('admin.logout')}}">
+                           href="{{ route('logout') }}"
+                           onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
                             <span>Log Out</span>
                         </a>
+                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                            @csrf
+                        </form>
                     </div>
                 </div>
 
