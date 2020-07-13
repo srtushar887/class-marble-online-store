@@ -140,7 +140,7 @@
                         }
                         else
                         {
-                            $('.product').empty();
+                            // $('.product').empty();
                             $('#loadmore').html("No Data");
                         }
                     }
@@ -173,7 +173,7 @@
                         }
                         else
                         {
-                            $('.product').empty();
+                            // $('.product').empty();
                             $('#normalloadmoretag').html("No Data");
                         }
                     }
@@ -210,7 +210,7 @@
                     }
                     else
                     {
-                        $('.product').empty();
+                        // $('.product').empty();
                         $('#loadmore').html("No Data");
                     }
                 }
@@ -221,11 +221,12 @@
         $(document).on('click','#normalloadmore',function(){
 
             var cat_id = $('.inptcatid').val();
+            var id = $(this).data('id');
 
             $.ajax({
                 url : '{{ route('category.search.loadmore.ajax') }}',
                 method : "POST",
-                data : {cat_id:cat_id, _token:"{{csrf_token()}}"},
+                data : {id:id,cat_id:cat_id, _token:"{{csrf_token()}}"},
                 dataType : "text",
                 success : function (data)
                 {
@@ -239,7 +240,7 @@
                     }
                     else
                     {
-                        $('.product').empty();
+                        // $('.product').empty();
                         $('#normalloadmore').html("No Data");
                     }
                 }
@@ -252,11 +253,12 @@
         $(document).on('click','#normalloadmoretag',function(){
 
             var tag_id = $('.inpttagid').val();
+            var id = $(this).data('id');
 
             $.ajax({
                 url : '{{ route('tag.search.loadmore.ajax') }}',
                 method : "POST",
-                data : {tag_id:tag_id, _token:"{{csrf_token()}}"},
+                data : {id:id,tag_id:tag_id, _token:"{{csrf_token()}}"},
                 dataType : "text",
                 success : function (data)
                 {
@@ -270,7 +272,7 @@
                     }
                     else
                     {
-                        $('.product').empty();
+                        // $('.product').empty();
                         $('#normalloadmoretag').html("No Data");
                     }
                 }

@@ -39,6 +39,11 @@ class FrontendController extends Controller
     }
 
 
+    public function virtual_toure()
+    {
+        return view('frontend.virtualTour');
+    }
+
 
 
     public function all_products()

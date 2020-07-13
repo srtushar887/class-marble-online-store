@@ -266,10 +266,11 @@ class UserFrontendController extends Controller
     public function category_searcg_load_more(Request $request)
     {
         $output = '';
+        $id = $request->id;
         $cat_id = $request->cat_id;
 
 
-        $posts = product::where('category_id',$cat_id)
+        $posts = product::where('id','<',$id)->where('category_id',$cat_id)
             ->orderBy('id','desc')->limit(12)->get();
 
         if(!$posts->isEmpty())
@@ -379,10 +380,12 @@ class UserFrontendController extends Controller
     public function get_product_by_tag_load_more(Request $request)
     {
         $output = '';
+        $id = $request->id;
         $tag_id = $request->tag_id;
 
 
-        $posts = product::where('tag_id',$tag_id)
+        $posts = product::where('id','<',$id)
+            ->where('tag_id',$tag_id)
             ->orderBy('id','desc')->limit(12)->get();
 
         if(!$posts->isEmpty())
@@ -429,6 +432,12 @@ class UserFrontendController extends Controller
 
             echo $output;
         }
+    }
+
+
+    public function virtual_toure()
+    {
+        return view('frontend.virtualTour');
     }
 
 

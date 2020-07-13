@@ -17,6 +17,7 @@ Route::get('/','FrontendController@index')->name('front');
 Route::get('/about-us','FrontendController@about_us')->name('about.us');
 Route::get('/terms-condition','FrontendController@privacy_policy')->name('terms.condition');
 Route::get('/faq','FrontendController@faq')->name('faq');
+Route::get('/virtualtour','FrontendController@virtual_toure')->name('virtualtour');
 //Route::get('/all-products','FrontendController@all_products')->name('all.products');
 //Route::get('/category-products/{id}','FrontendController@category_products')->name('category.product');
 //Route::get('/product-details/{id}','FrontendController@product_details')->name('product.details');

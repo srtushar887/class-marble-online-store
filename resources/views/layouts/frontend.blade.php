@@ -78,7 +78,12 @@
                                             <a href="{{route('all.products')}}">Products</a>
                                         </li>
 
-                                    <li><a href="">Virtual Tour</a></li>
+                                    @guest
+                                    <li><a href="{{route('login')}}">Virtual Tour</a></li>
+                                    @else
+                                    <li><a href="{{route('virtualtour')}}">Virtual Tour</a></li>
+                                    @endguest
+
                                     <li class="{{ Request::is('contact') ? 'active' : '' }}"><a href="{{route('contact')}}">Contact</a></li>
                                     @guest
                                         @if (Request::is('login'))
@@ -326,6 +331,36 @@
                 });
             }
         </script>
+
+
+
+        <!--Start of Tawk.to Script-->
+{{--        <script type="text/javascript">--}}
+{{--            var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();--}}
+{{--            (function(){--}}
+{{--                var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];--}}
+{{--                s1.async=true;--}}
+{{--                s1.src='https://embed.tawk.to/5f0999315b59f94722ba8778/default';--}}
+{{--                s1.charset='UTF-8';--}}
+{{--                s1.setAttribute('crossorigin','*');--}}
+{{--                s0.parentNode.insertBefore(s1,s0);--}}
+{{--            })();--}}
+{{--        </script>--}}
+        <!--End of Tawk.to Script-->
+
+
+
+        <!-- Start of REVE Chat Script-->
+        <script type='text/javascript'>
+            window.$_REVECHAT_API || (function(d, w) { var r = $_REVECHAT_API = function(c) {r._.push(c);}; w.__revechat_account='6548786';w.__revechat_version=2;
+                r._= []; var rc = d.createElement('script'); rc.type = 'text/javascript'; rc.async = true; rc.setAttribute('charset', 'utf-8');
+                rc.src = ('https:' == document.location.protocol ? 'https://' : 'http://') + 'static.revechat.com/widget/scripts/new-livechat.js?'+new Date().getTime();
+                var s = d.getElementsByTagName('script')[0]; s.parentNode.insertBefore(rc, s);
+            })(document, window);
+        </script>
+        <!-- End of REVE Chat Script -->
+
+
 
 </body>
 </html>

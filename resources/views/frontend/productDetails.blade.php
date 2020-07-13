@@ -117,15 +117,9 @@
 {{--                                    <span>$29.99 USD</span>--}}
                                 </div>
                                 <div class="product-info-stock-sku">
-                                    <div class="stock available">
-                                        <span class="ampreorder-observed">Pre Order<br></span>
-                                    </div>
-                                    <div class="availability only" title="Only 7 Remaining">
-                                        Only 7 Remaining
-                                    </div>
                                     <div class="product attribute sku">
-                                        <strong class="type">Product Code</strong>
-                                        <div class="value" itemprop="sku">AT1668</div>
+                                        <strong class="type">Item Code</strong>
+                                        <div class="value" itemprop="sku">{{$product->item_code}}</div>
                                     </div>
                                 </div>
 
@@ -140,7 +134,7 @@
                                             <span class="input-number-decrement">–</span><input class="input-number" type="text" name="qty" value="1" min="0" max="10"><span class="input-number-increment">+</span>
                                         </div>
                                             <input type="hidden" name="product_id" value="{{$product->id}}">
-                                        <div class="delivery-message"><p>ORDER NOW AND RECEIVE BY FRIDAY 28TH AUGUST</p></div>
+                                        <div class="delivery-message"></div>
                                         <div class="actions">
                                             <button type="submit" title="Add to Basket" class="action primary tocart" id="product-addtocart-button">
                                                 <span>Add to Wishlist</span>

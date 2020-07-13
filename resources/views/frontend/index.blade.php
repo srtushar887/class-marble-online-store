@@ -97,7 +97,7 @@
                             <img src="{{asset($cat1->cat_image)}}" style="height: 400px;" alt="banner">
                         <div class="banner-content">
                             <h2>{{$cat1->category_name}}</h2>
-                            <a href="{{route('category.prodyuct',$cat1->id)}}">Shop Now</a>
+                            <a href="{{route('category.prodyuct',$cat1->id)}}">Add to my selection</a>
                         </div>
                     </div>
                 </div>
