@@ -42,8 +42,14 @@
                 <div class="dropdown d-inline-block ml-2">
                     <button type="button" class="btn header-item waves-effect" id="page-header-user-dropdown"
                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="rounded-circle header-profile-user" src="{{asset('assets/admin/')}}/images/users/avatar-3.jpg"
-                             alt="Header Avatar">
+                        @if (!empty(Auth::user()->image))
+                            <img class="rounded-circle header-profile-user" src="{{asset(Auth::user()->image)}}"
+                                 alt="Header Avatar">
+                        @else
+                            <img class="rounded-circle header-profile-user" src="https://cdn2.vectorstock.com/i/thumb-large/23/81/default-avatar-profile-icon-vector-18942381.jpg"
+                                 alt="Header Avatar">
+                        @endif
+
                         <span class="d-none d-sm-inline-block ml-1">{{Auth::user()->name}}</span>
                         <i class="mdi mdi-chevron-down d-none d-sm-inline-block"></i>
                     </button>
@@ -74,7 +80,7 @@
         <div data-simplebar class="h-100">
 
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo">
+                <a href="{{route('admin.dashboard')}}" class="logo">
                     <img src="{{asset($gn->logo)}}" style="height: 58px;width: 168px;" />
                 </a>
             </div>

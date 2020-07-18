@@ -50,7 +50,9 @@ class AdminController extends Controller
 
         $gen->site_name = $request->site_name;
         $gen->site_email = $request->site_email;
+        $gen->site_email_2 = $request->site_email_2;
         $gen->site_phone = $request->site_phone;
+        $gen->site_phone_2 = $request->site_phone_2;
         $gen->site_address = $request->site_address;
         $gen->footer_content = $request->footer_content;
         $gen->save();

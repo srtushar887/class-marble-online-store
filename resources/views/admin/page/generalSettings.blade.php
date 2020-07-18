@@ -21,17 +21,25 @@
                         @csrf
                         <div class="form-row">
 
-                            <div class="col-md-4 mb-3">
+                            <div class="col-md-12 mb-3">
                                 <label for="validationCustom01">Site Name</label>
                                 <input type="text" name="site_name" value="{{$gen->site_name}}" class="form-control" id="validationCustom01"  required="">
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="validationCustom01">Site Email</label>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Site Email 1</label>
                                 <input type="text" name="site_email" value="{{$gen->site_email}}" class="form-control" id="validationCustom01"  required="">
                             </div>
-                            <div class="col-md-4 mb-3">
-                                <label for="validationCustom01">Site Phone</label>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Site Email 2</label>
+                                <input type="text" name="site_email_2" value="{{$gen->site_email_2}}" class="form-control" id="validationCustom01"  required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Site Phone 1</label>
                                 <input type="text" name="site_phone" value="{{$gen->site_phone}}" class="form-control" id="validationCustom01"  required="">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="validationCustom01">Site Phone 2</label>
+                                <input type="text" name="site_phone_2" value="{{$gen->site_phone_2}}" class="form-control" id="validationCustom01"  required="">
                             </div>
 
                             <div class="col-md-12 mb-3">

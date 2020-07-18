@@ -10,8 +10,8 @@
                 <div class="my-breadcrumb">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="index.html">Home</a></li>
-                            <li class="breadcrumb-item"><a href="index.html">Product Listing</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('front')}}">Home</a></li>
+                            <li class="breadcrumb-item"><a href="{{route('all.products')}}">Product Listing</a></li>
                             <li class="breadcrumb-item active" aria-current="page">Product Detail</li>
                         </ol>
                     </nav>

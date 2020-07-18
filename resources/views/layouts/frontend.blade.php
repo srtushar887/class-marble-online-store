@@ -24,7 +24,7 @@
 
     <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/menu.css">
     <link rel="stylesheet" href="{{asset('assets/frontend/')}}/css/style.css">
-    <link rel="shortcut icon" type="image/ico" href="{{asset('assets/frontend/')}}/images/index1/favicon.svg" />
+    <link rel="shortcut icon" type="image/ico" href="{{asset($gn->icon)}}" />
     <title>{{$gn->site_name}}</title>
 
 </head>
@@ -231,11 +231,13 @@
                                     <li><span>Contact Number :</span>
                                         <div class="footer_info">
                                             <a href="">+ {{$gn->site_phone}}</a>
+                                            <a href="">+ {{$gn->site_phone_2}}</a>
                                         </div>
                                     </li>
                                     <li><span>Email Address  :</span>
                                         <div class="footer_info">
                                             <a href="">{{$gn->site_email}}</a>
+                                            <a href="">{{$gn->site_email_2}}</a>
                                         </div>
                                     </li>
                                 </ul>

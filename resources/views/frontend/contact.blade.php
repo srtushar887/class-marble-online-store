@@ -40,12 +40,11 @@
                         </div>
                         <div class="single-contact-block">
                             <h4><i class="fa fa-phone"></i> Phone</h4>
-                            <p>Mobile: {{$gn->site_phone}}</p>
-                            <p>Hotline: 1009 678 456</p>
+                            <p>Mobile: {{$gn->site_phone}} ,{{$gn->site_phone_2}}</p>
                         </div>
                         <div class="single-contact-block last-child">
                             <h4><i class="fa fa-envelope-o"></i> Email</h4>
-                            <p>{{$gn->site_email}}</p>
+                            <p>{{$gn->site_email}}, {{$gn->site_email_2}}</p>
                         </div>
                     </div>
                 </div>

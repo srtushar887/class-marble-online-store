@@ -20,88 +20,99 @@
     </section>
 
 
-    <section class="about_wrapper">
+    <section class="asbout-us-part">
         <div class="container">
             <div class="row">
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 mb_30">
-                    <div class="about_img relative">
-                        <div class="effect">
-                            <img src="{{asset('assets/frontend/')}}/images/banner-13.jpg" alt="Locksmith"/>
-                        </div>
-                    </div>
+                <div class="col-md-8">
+                    <h2>LAXMI GROUP</h2>
+                    <p>Founded in 1992 and since then we are exporting hundreds of
+                        containers of furniture made out of hard wood & various mix metals
+                        and chandeliers every year on exclusive basis to Europe, U.K,
+                        USA, South Africa, China and Australia.
+                    </p>
+                    <p>Our manufacturing operations and showrooms are based in Jaipur
+                        (Rajasthan). The wood is sourced directly from the forest
+                        department, which is chemically seasoned at our seasoning plant.
+                        With our flexible approach to concept and design, our in-house
+                        designers design products to embrace both contemporary and
+                        traditional style.
+                    </p>
+                    <p>We cater to international quality, standards and lifestyles. We are
+                        leading manufacturer and Exporter of Indian Handicrafts, Wooden
+                        Furniture, Wrought Iron Ware & Chandeliers.
+                    </p>
+                    <p>We have the world class in-house facility for making of quality
+                        wooden and iron furniture. The work place employees over 650
+                        skilled craftsmen, who amongst other things also bring with the
+                        famed and age old tradition of craftsmanship.
+                    </p>
                 </div>
-                <div class="col-lg-6 col-md-6 col-sm-12 col-12 d-flex align-items-center mb_30">
-                    <div class="about_text">
-                        <h4 class="sub_heading relative">About Us</h4>
-                        <p><strong>Laxmi International Export</strong> was founded in 1992 and since then we are exporting hundreds of containers of furniture and chandeliers every year on exclusive basis to Europe, U.K, USA, South Africa and Australia. Our manufacturing operations and showrooms are based in Jaipur (Rajasthan). The wood is sourced directly from the forest department, which is chemically seasoned at our seasoning plants. The wood Sheesham, Acacia and mango. The company started selling furniture sixteen years back and has recently diversified in the field of chandeliers, gift articles and home furnishing accessories. With our flexible approach to concept and design, our in-house designers design products to embrace both contemporary and traditional style.</p>
-                        <div class="divider"></div>
-                        <p>We cater to international quality, standards and lifestyles. We are leading manufacturer and Exporter of Indian Handicrafts, Wooden Furniture and Wrought Iron Ware.</p>
-                        <p>We have the latest in-house facility for making of quality hand crafted wooden and iron furniture. The work place employees over 95 skilled craftsmen, who amongst other things also bring with the famed and age old tradition of craftsmanship.</p>
-                        <!-- <ul class="list_item">
-                            <li><span class="fa fa-check-circle"></span>Pakage Lock</li>
-                            <li><span class="fa fa-check-circle"></span>Car Lock</li>
-                            <li><span class="fa fa-check-circle"></span>Digital & Electronic Lock </li>
-                            <li><span class="fa fa-check-circle"></span>Electronics Lock</li>
-                        </ul> -->
-                    </div>
-                </div>
-                <div class="col-12 d-flex align-items-center mb_30">
-                    <div class="about_text">
-                        <p>We have the latest in-house facility for making of quality hand crafted wooden and iron furniture. The work place employees over 95 skilled craftsmen, who amongst other things also bring with the famed and age old tradition of craftsmanship.</p>
-                        <p>We have in-house facility for wood seasoning and chemical treatment to make the wood moisture free. The chemicals used are eco-friendly.</p>
 
-                        <h5 class="mt-4 mb-2 font-weight-bold">Our product-mix includes</h5>
-                        <p>Coffee tables of all sizes, Dinning tables of all sizes, Wooden Cabinets, Almirah, Drawers Cabinet, Boxes, T.V.Cabinets, Hifi CD Cabinets, Kitchen Cabinets Range, Complete Bed Room Set, and many more items.</p>
-                        <p>We specialize primarily in development of exclusive samples as per the need of the buyer in addition of having an enormous range of our creation, which depicts the art of India, blended with a mixture of present-era. To ensure world-class quality, every product is thoroughly checked at various stages of production from casting to packing. We have specialists who have the calibre to innovate the finest in the world, to give it a touch to make your choice a special one. Containers are stuffed at both inland port and at the factory site under the supervision of experts.</p>
-                        <p>At Laxmi International Exports the customer satisfaction continues to grow as we continue to be creative and our professional attitude has not only equipped us to achieve total customer satisfaction but has also enabled us to ensure repeat orders from our clients.</p>
+                <div class="col-md-4 mb-5">
+                    <div class="about-bg p-4">
+                        <p>We are proud to have the world class
+                            seasoning kilns from Singapore and the
+                            main control panel from Denmark
+                            because of which Laxmi has an edge over
+                            its competitors. We have the capacity of
+                            seasoning 700 CBM of wood
+                            every month . We have different
+                            programmed for different species of
+                            timber which helps us to get ultimate
+                            results of seasoning.
+                            We have a fully equipped machine shop
+                            where we have all the machinery required
+                            to make any kind of furniture from a small
+                            table to a big cabinet. We are capable of
+                            making any kind of furniture with all the
+                            machineries like wide belot sander, copy
+                            shaper , CNC router and many more to
+                            give you wonderful quality.We have a
+                            very fine metal division in our factory
+                            which has helped us to take the quality to
+                            the next level in the last 3 years .
+                            MILD STEEL and STAINLESS STEEL
+                            where we use the finest forms of welding
+                            which is MIG WELDING for MS and TIG
+                            WELDING for STAINLESS STEEL.</p>
                     </div>
+                </div>
+
+                <div class="col-md-4 mb-5">
+                    <div class="about-bg">
+                        <img src="{{asset('assets/frontend/')}}/images/about-1.jpg">
+                        <h6 class="pt-4 pl-4 pr-4">WHYCHOOSEUS</h6>
+                        <ul class="p-4">
+                            <li>OUR COMPANY PHILOSOPHY IS BUILTAROUND 2 SIMPLE IDEALS; QUALITYAND RESPONSIVENESS. OUR SERVICECOMMITMENT HAS RESULTED INREPEAT BUSINESS, REFERRALS ANDLONG TERM RELATIONSHIPS WITHHUNDREDS OF CLIENTS ACROSS THEWORLD.</li>
+                            <li>YOU GET VALUE FOR MONEY WHENYOU BUY FROM US.</li>
+                            <li>YOU GET A PROFESSIONAL SUPPLIERWHO KNOWS HOW PRECIOUS YOURTIME IS.</li>
+                            <li>WE ASSURE YOU FOR THEEXCLUSIVITY OF YOUR DESIGNS INYOUR COUNTRY.</li>
+                            <li>YOU DEAL WITH A COMPANY WHOALWAYS GIVE MORE EMPHASIS ONSOCIAL PRACTICES IN INDIA.</li>
+                            <li>QUALITY MANUFACTURING USINGQUALITY MATERIALS AND PEACE OFMIND BY ASSURING WHAT YOU SEE ISWHAT YOU GET.</li>
+                            <li>A DESIGN TEAM WHO CAN WORKWITH YOU AND CONSTANTLYDEVELOP NEW PRODUCTS IN LINEWITH YOUR CUSTOMERBASE/MARKET.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-8">
+                    <p>Our  product-mix  includes  furniture's  and  chandeliers  for  Living  Room,  Diningroom,  Hallway,Home  offices,  Lounge  and  Bedrooms.  Which  includes  DiningTables,  Coffee  Tables,  Side  Tables,    Chest  of  Drawers,  Drinks  Trolleys,Media  Units,  TV  Stands,  Sideboards,Drinks  Cabinets,  Shelving,Bookcases,Bedside Tables,  Consoles, Desks and Dressing Tables, The Company offersa huge range of over 4,000 internationally designed products to its esteemedcustomers today.</p>
+                    <p>We specialize primarily in development of exclusive samples as per the needof  the  buyer  in  addition  of  having  an  enormous  range  of  our  creation,  whichdepicts  the  art  of  India,  blended  with  a  mixture  of  present-era.  To  ensureworld-class  quality,every  product  is  thoroughly  checked  at  various  stages  ofproduction from casting to packing. We have specialists who have the calibreto  innovate  the  finest  in  the  world,  to  give  it  a  touch  to  make  your  choice  aspecial  one.  Containers  are  stuffed  at  both  inland  port  and  at  the  factory  siteunder the supervision of experts.</p>
+                    <p>At  Laxmi  the  customer  satisfaction  continues  to  grow  as  we  continue  to  becreative  and  our  professional  attitude  has  not  only  equipped  us  to  achievetotal  customer  satisfaction  but  has  also  enabled  us  to  ensure  repeat  ordersfrom our clients.</p>
+                    <p>We attend to each detail of our clients' needs - from the inception of the ideato  the  time  that  the  shipment  reaches  the  destination  to  getting  invaluablefeedback on how well the goods are received in their markets.</p>
+                    <h5>QualityPolicy</h5>
+                    <p>Seven  steps  QC  process  which  ensure  that  each  and  every  piece  is  checkedat particular department and then once QC is passed it is transferred to otherdepartment for further process. Before packaging we have strict quality checkprocesses  which  every  time  is  available  with  management  because  QC  isdone on online platform.</p>
+                    <h5>Clients</h5>
+                    <p>Working with various retailers and importers world-wide in which major of ourexport is towards European countries, Australia and America.</p>
+                    <h5>ProductionCapacity</h5>
+                    <p>Capacity to produce 50 x 40' ft HQ containers every month and by next year itwould  be  double  of  present  capacity  as  Laxmi  Group  is  in  process  of  addingone more world class facility.</p>
+                    <h5>Designs</h5>
+                    <p>A  young  team  in  house  designers  which  work  day  and  night  to  come  out  withbest designs in the world for our prestigious clients.We  approach  designing  our  product  with  three  equally  important  factors  inmind which is beauty, utility and longevity. These points are critical to us, asthis is a step towards a sustainable business.As  furniture  and  lights  (chandeliers)  are  always  seen  first,  it  must  visuallyspark something in the imagination or soul.</p>
+                    <p>We  have  been  awarded  for  highest  growth  in  the  exports  of  wood  ware  in2005-2006.</p>
                 </div>
             </div>
         </div>
-        </div>
     </section>
 
-    <section class="pt-5 pb-3">
-        <div class="container">
-            <div class="faq" id="accordion">
-                <div class="card">
-                    <div class="card-header" id="faqHeading-1">
-                        <div class="mb-0">
-                            <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-1" data-aria-expanded="true" data-aria-controls="faqCollapse-1">
-                                <span class="badge">1</span>Why Choose us
-                            </h5>
-                        </div>
-                    </div>
-                    <div id="faqCollapse-1" class="collapse show" aria-labelledby="faqHeading-1" data-parent="#accordion">
-                        <div class="card-body">
-                            <p>our company philosophy is built around 2 simple ideals; quality and responsiveness. Our service commitment has resulted in repeat business, referrals and long term relationships with hundreds of clients across the world. </p>
-                            <p>You get value for money when you buy from us.</p>
-                            <p>You get a professional supplier who knows how precious your time is.</p>
-                            <p>We assure you for the exclusivity of your designs in your country.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card">
-                    <div class="card-header" id="faqHeading-2">
-                        <div class="mb-0">
-                            <h5 class="faq-title" data-toggle="collapse" data-target="#faqCollapse-2" data-aria-expanded="false" data-aria-controls="faqCollapse-2">
-                                <span class="badge">2</span> What we can offer you...
-                            </h5>
-                        </div>
-                    </div>
-                    <div id="faqCollapse-2" class="collapse" aria-labelledby="faqHeading-2" data-parent="#accordion">
-                        <div class="card-body">
-                            <p>Quality manufacturing using quality materials and peace of mind by assuring what you see is what you get.</p>
-                            <p>A design team who can work with you and constantly develop new products in line with your customer base/market.</p>
-                            <p>Exclusive furniture, accessories and chandeliers designs from our own collections to suit all markets.</p>
-                            <p>On demand management reports giving you production and supply chain information so you can track the status of your order.</p>
-                            <p>Bespoke packaging solutions for all your(customer)needs if required.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
 
     <div class="clearfix"></div>
