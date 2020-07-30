@@ -31,9 +31,7 @@
                 <div class="col-lg-6">
                     <div class="contact-page-side-content">
                         <h3 class="contact-page-title">Contact Us</h3>
-                        <p class="contact-page-message">Claritas est etiam processus dynamicus, qui sequitur
-                            mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum
-                            claram anteposuerit litterarum formas human.</p>
+                        <p class="contact-page-message">{!!  $contyact->contact_us_content !!}</p>
                         <div class="single-contact-block">
                             <h4><i class="fa fa-fax"></i> Address</h4>
                             <p>{!! $gn->site_address !!}</p>

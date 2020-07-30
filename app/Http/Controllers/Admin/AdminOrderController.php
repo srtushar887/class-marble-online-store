@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\order;
+use App\order_details;
 use Illuminate\Http\Request;
 
 class AdminOrderController extends Controller
@@ -37,6 +38,25 @@ class AdminOrderController extends Controller
             ->first();
         return view('admin.order.orderPrint',compact('order'));
     }
+
+    public function delete_order(Request $request)
+    {
+        $order = order::where('id',$request->delete_order)->first();
+
+        $order_details = order_details::where('order_id',$order->id)->get();
+
+        foreach ($order_details as $order_d){
+            order_details::where('id',$order_d->id)->delete();
+        }
+
+        $order->delete();
+
+        return back()->with('success','Order Successfully Deleted');
+
+
+
+    }
+
 
 
 

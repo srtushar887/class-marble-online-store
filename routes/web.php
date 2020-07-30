@@ -17,7 +17,10 @@ Route::get('/','FrontendController@index')->name('front');
 Route::get('/about-us','FrontendController@about_us')->name('about.us');
 Route::get('/terms-condition','FrontendController@privacy_policy')->name('terms.condition');
 Route::get('/faq','FrontendController@faq')->name('faq');
+Route::get('/career','FrontendController@career')->name('career');
+Route::post('/apply-job','FrontendController@apply_job')->name('applyjob');
 Route::get('/virtualtour','FrontendController@virtual_toure')->name('virtualtour');
+Route::post('/virtualtour/save','FrontendController@virtual_toure_save')->name('virtualtoursave');
 //Route::get('/all-products','FrontendController@all_products')->name('all.products');
 //Route::get('/category-products/{id}','FrontendController@category_products')->name('category.product');
 //Route::get('/product-details/{id}','FrontendController@product_details')->name('product.details');
@@ -83,22 +86,44 @@ Route::group(['middleware' => ['auth:admin']], function() {
         Route::get('/view-order/{id}', 'Admin\AdminOrderController@view_order')->name('admin.view.order');
         Route::post('/order-update', 'Admin\AdminOrderController@order_update')->name('admin.order.update');
         Route::get('/order-print/{id}', 'Admin\AdminOrderController@order_print')->name('admin.order.print');
+        Route::post('/delete-order', 'Admin\AdminOrderController@delete_order')->name('admin.delete.order');
 
         //users
         Route::get('/users', 'Admin\AdminUserController@users')->name('admin.users');
         Route::post('/users-update', 'Admin\AdminUserController@users_update')->name('admin.user.update');
+        Route::post('/users-delete', 'Admin\AdminUserController@users_delete')->name('admin.user.delete');
         Route::get('/users-export', 'Admin\AdminUserController@user_export')->name('admin.user.export');
+
+        //job management
+        Route::get('/job-management', 'Admin\AdminJobController@jobs')->name('admin.jobs');
+        Route::post('/job-create', 'Admin\AdminJobController@jobs_create')->name('admin.job.create');
+        Route::post('/job-update', 'Admin\AdminJobController@jobs_update')->name('admin.job.update');
+        Route::post('/job-delete', 'Admin\AdminJobController@jobs_delete')->name('admin.job.delete');
+        Route::get('/applied-job-user', 'Admin\AdminJobController@jobs_applied_user')->name('admin.jobs.user');
+        Route::post('/applied-job-user-delete', 'Admin\AdminJobController@jobs_applied_user_delete')->name('admin.applyjob.delete');
+        Route::get('/virtual-tour-user', 'Admin\AdminJobController@virtual_tour_user')->name('admin.virtialtoure.user');
+        Route::post('/virtual-tour-user-delete', 'Admin\AdminJobController@virtual_tour_user_delete')->name('admin.virtualtoure.delete');
 
 
         //frontend control
         Route::get('/home-header', 'Admin\AdminFrontendController@home_slider')->name('admin.slider');
         Route::post('/home-header-save', 'Admin\AdminFrontendController@home_slider_save')->name('admin.home.header.save');
+        Route::get('/about-us', 'Admin\AdminFrontendController@about_us')->name('admin.about.us');
+        Route::post('/about-us-save', 'Admin\AdminFrontendController@about_us_save')->name('admin.aboutus.save');
+        Route::get('/contact-us', 'Admin\AdminFrontendController@contact_us')->name('admin.contact.us');
+        Route::post('/contact-us-save', 'Admin\AdminFrontendController@contact_us_save')->name('admin.conatct.save');
 
         //partner
         Route::get('/home-partner', 'Admin\AdminFrontendController@home_partner')->name('admin.home.partner');
         Route::post('/home-partner-create', 'Admin\AdminFrontendController@home_partner_create')->name('admin.partner.create');
         Route::post('/home-partner-update', 'Admin\AdminFrontendController@home_partner_update')->name('admin.partner.update');
         Route::post('/home-partner-delete', 'Admin\AdminFrontendController@home_partner_delete')->name('admin.partner.delete');
+
+        //faq
+        Route::get('/faq', 'Admin\AdminFrontendController@faq')->name('admin.faq');
+        Route::post('/faq-create', 'Admin\AdminFrontendController@faq_craete')->name('admin.faq.create');
+        Route::post('/faq-update', 'Admin\AdminFrontendController@faq_update')->name('admin.faq.update');
+        Route::post('/faq-delete', 'Admin\AdminFrontendController@faq_delete')->name('admin.faq.delete');
 
         //newslatter email
         Route::get('/newslatter-emails', 'Admin\AdminFrontendController@newslatter_emails')->name('admin.newslatter');

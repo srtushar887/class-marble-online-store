@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\general_setting;
 use App\User;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -13,27 +14,20 @@ class CustomLoginController extends Controller
     {
 
         $this->validate($request,[
-            'user_name' => ['required', 'string', 'max:255','unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string'],
             'company_name' => ['required', 'string'],
-            'skype_id' => ['required', 'string'],
-            'whatapp_ap' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ],[
-            'user_name.required' => 'Please Enter Your Username',
             'name.required' => 'Please Enter Your Full Name',
             'email.required' => 'Please Enter Your Email',
             'phone.required' => 'Please Enter Phone Number',
             'company_name.required' => 'Please Enter Company Name',
-            'skype_id.required' => 'Please Enter Skype ID',
-            'whatapp_ap.required' => 'Please Enter Whatsapp Number',
         ]);
 
 
         $new_acc = new User();
-        $new_acc->user_name = $request->user_name;
         $new_acc->name = $request->name;
         $new_acc->email = $request->email;
         $new_acc->phone = $request->phone;
@@ -42,8 +36,30 @@ class CustomLoginController extends Controller
         $new_acc->whatapp_ap = $request->whatapp_ap;
         $new_acc->password = Hash::make($request->password);
         $new_acc->account_status = 1;
-        $new_acc->exp_date = Carbon::now()->addSecond(1);
+        $new_acc->exp_date = Carbon::now()->addDay(1);
         $new_acc->save();
+
+
+        $form = $new_acc->email;
+        $gen = general_setting::first();
+        $to = "customer@laxmiexport.com";
+        $subject = "New User Registration";
+        $message = "
+New user have registered. User details under bellow :
+
+Name : {$new_acc->name}.
+email : {$new_acc->email}.
+";
+        $headers = "MIME-Version: 1.0" . "\r\n";
+        $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+        $headers .= 'From: Do not reply <>' . "\r\n";
+        $headers .= "X-Sender: testsite < customer@laxmiexport.com >\n";
+        $headers .= 'X-Mailer: PHP/' . phpversion();
+        $headers .= "X-Priority: 1\n"; // Urgent message!
+
+        mail($to, $subject, $message);
+
+
 
         return redirect(route('front'))->with('success','Account Successfully Created. Admin will review and approved your account');
 

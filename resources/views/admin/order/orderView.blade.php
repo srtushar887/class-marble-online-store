@@ -77,9 +77,7 @@
                             <tr>
                                 <th>Product Name</th>
                                 <th>Product Image</th>
-                                <th>Product price</th>
                                 <th>Product Qty</th>
-                                <th>Amount</th>
                             </tr>
                             </thead>
                             <tbody>
@@ -96,13 +94,7 @@
                                 <tr>
                                     <td>{{$product->name}}</td>
                                     <td><img src="{{asset($product->image)}}" style="height: 50px;width: 50px;"></td>
-                                    <td>${{$cart->product_price}}</td>
                                     <td>${{$cart->qty}}</td>
-                                    <?php
-                                    $am = $cart->product_price * $cart->qty;
-
-                                    ?>
-                                    <td>${{$am}}</td>
                                 </tr>
 
 

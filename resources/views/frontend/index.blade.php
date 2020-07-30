@@ -10,7 +10,7 @@
                     <div class="col-md-7">
                         <h1 class="mb-3">{{$all_static->title}}</h1>
                         <p class="mb-3">{{$all_static->sub_title}}</p>
-                        <a class="btn btn-main mb-4" href="{{route('contact')}}">Get in touch</a>
+                        <a class="btn btn-main mb-4" target="_blank" href="https://meet.google.com/oqu-ykej-pat">Get in touch</a>
                     </div>
 
                     <div class="col-md-5 mb-4">
@@ -217,6 +217,10 @@
         </div> <!--/container-->
     </section>
 
+
+
+    <div id="paypal-button-container"></div>
+
     <!-- Call To Action Section -->
     <!--  <section class="callToAction_wrapper" style="background: url(images/slider1.jpg);">
          <div class="container">
@@ -349,4 +353,33 @@
         </div>
     </section> -->
 
+@stop
+
+@section('js')
+    <script src="https://www.paypal.com/sdk/js?client-id=sb&currency=USD" data-sdk-integration-source="button-factory"></script>
+    <script>
+        paypal.Buttons({
+            style: {
+                shape: 'rect',
+                color: 'gold',
+                layout: 'vertical',
+                label: 'paypal',
+
+            },
+            createOrder: function(data, actions) {
+                return actions.order.create({
+                    purchase_units: [{
+                        amount: {
+                            value: '1'
+                        }
+                    }]
+                });
+            },
+            onApprove: function(data, actions) {
+                return actions.order.capture().then(function(details) {
+                    alert('Transaction completed by ' + details.payer.name.given_name + '!');
+                });
+            }
+        }).render('#paypal-button-container');
+    </script>
 @stop

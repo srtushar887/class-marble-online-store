@@ -37,6 +37,7 @@ class HomeController extends Controller
 //            return redirect(route('login'))->with('delete_message','Sorry! Your Account Was Disable');
         }
 
-        return view('user.index');
+        $total_order = order::where('user_id',Auth::user()->id)->count();
+        return view('user.index',compact('total_order'));
     }
 }

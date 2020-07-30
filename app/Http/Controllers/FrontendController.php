@@ -3,13 +3,18 @@
 namespace App\Http\Controllers;
 
 use App\all_static_data;
+use App\apply_job;
 use App\category;
+use App\faq;
 use App\general_setting;
 use App\home_partner;
+use App\job;
 use App\newslatter;
 use App\product;
+use App\virtual_ture;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Intervention\Image\Facades\Image;
 
 class FrontendController extends Controller
 {
@@ -25,7 +30,8 @@ class FrontendController extends Controller
 
     public function about_us()
     {
-        return view('frontend.aboutUs');
+        $about = all_static_data::first();
+        return view('frontend.aboutUs',compact('about'));
     }
 
     public function privacy_policy()
@@ -35,14 +41,65 @@ class FrontendController extends Controller
 
     public function faq()
     {
-        return view('frontend.faq');
+        $faq = faq::orderBy('id','desc')->get();
+        return view('frontend.faq',compact('faq'));
     }
+
+    public function career()
+    {
+        $jobs = job::orderBy('id','desc')->paginate(10);
+        return view('frontend.career',compact('jobs'));
+    }
+
+    public function apply_job(Request $request)
+    {
+        $apply_job = new apply_job();
+
+        if($request->hasFile('cv')){
+            $image = $request->file('cv');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('cv');
+            $directory = 'assets/admin/images/static/';
+            $image->move($directory,$imageName);
+            $imageUrl=$directory.$imageName;
+            $apply_job->cv = $imageUrl;
+        }
+
+        $apply_job->name = $request->name;
+        $apply_job->email = $request->email;
+        $apply_job->gender = $request->gender;
+        $apply_job->contact = $request->contact;
+        $apply_job->job_id = $request->job_id;
+        $apply_job->exp = $request->exp;
+        $apply_job->c_salary = $request->c_salary;
+        $apply_job->save();
+
+        return back()->with('success','Job Applied');
+
+    }
+
+
 
 
     public function virtual_toure()
     {
         return view('frontend.virtualTour');
     }
+
+    public function virtual_toure_save(Request $request)
+    {
+        $new_msg = new virtual_ture();
+        $new_msg->con_name = $request->con_name;
+        $new_msg->con_email = $request->con_email;
+        $new_msg->con_number = $request->con_number;
+        $new_msg->time = $request->time;
+        $new_msg->con_date = $request->con_date;
+        $new_msg->con_message = $request->con_message;
+        $new_msg->save();
+
+        return back()->with('success','Message send Successfully');
+
+    }
+
 
 
 
@@ -122,7 +179,8 @@ class FrontendController extends Controller
 
     public function contact()
     {
-        return view('frontend.contact');
+        $contyact = all_static_data::first();
+        return view('frontend.contact',compact('contyact'));
     }
 
     public function contact_send(Request $request)

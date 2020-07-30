@@ -86,7 +86,7 @@ class UserController extends Controller
 
         }
         Cart::destroy();
-        return back()->with('success','order Placed Successfully');
+        return redirect(route('front'))->with('success','order Placed Successfully');
 
 
 

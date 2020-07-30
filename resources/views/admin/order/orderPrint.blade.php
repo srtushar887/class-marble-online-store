@@ -32,7 +32,7 @@
                                     $user = \App\User::where('id',$order->user_id)->first();
                                 ?>
                                 <b>{{$user->name}}</b><br>
-                                    {!! $user->address !!}<br>
+                                    <abbr title="Company">Company :</abbr> {!! $user->company !!}<br>
                                 <abbr title="Phone">P:</abbr> {{$user->phone}}
                             </address>
                         </div><!-- end col -->
@@ -53,6 +53,7 @@
                                     <thead>
                                     <tr><th>#</th>
                                         <th>Item</th>
+                                        <th>Item Image</th>
                                         <th>Quantity</th>
                                     </tr></thead>
                                     <tbody>
@@ -67,7 +68,11 @@
                                     <tr>
                                         <td>{{$i++}}</td>
                                         <td>
-                                            {{$product->product_name}}
+                                            Product Name : {{$product->product_name}} <br>
+                                            CODE : {{$product->item_code}}
+                                        </td>
+                                        <td>
+                                            <img src="{{asset($product->image)}}" style="height: 100px;width: 100px;">
                                         </td>
                                         <td>{{$orderitm->qty}}</td>
                                     </tr>

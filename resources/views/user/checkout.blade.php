@@ -463,7 +463,8 @@
                                             <div class="col-12">
 
                                                 @if ($carts_count > 0)
-                                                <button class="new_btn mb-4">Place order</button>
+{{--                                                    <div id="paypal-button-container"></div>--}}
+{{--                                                <button class="new_btn mb-4">Place order</button>--}}
                                                 @endif
 
                                             </div>
@@ -483,5 +484,8 @@
 
 
     <div class="clearfix"></div>
+
+@stop
+@section('js')
 
 @stop

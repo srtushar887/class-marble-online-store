@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\all_static_data;
+use App\faq;
 use App\home_partner;
 use App\Http\Controllers\Controller;
 use App\newslatter;
@@ -121,6 +122,92 @@ class AdminFrontendController extends Controller
         $emails = newslatter::orderBy('id','desc')->get();
         return view('admin.frontend.newsLatterEmail',compact('emails'));
     }
+
+
+    public function about_us()
+    {
+        $about = all_static_data::first();
+        return view('admin.frontend.aboutUs',compact('about'));
+    }
+
+    public function about_us_save(Request $request)
+    {
+        $about = all_static_data::first();
+        if($request->hasFile('about_us_image')){
+            @unlink($about->about_us_image);
+            $image = $request->file('about_us_image');
+            $imageName = uniqid().time().'.'.$image->getClientOriginalName('about_us_image');
+            $directory = 'assets/admin/images/static/';
+            $imgUrl  = $directory.$imageName;
+            Image::make($image)->save($imgUrl);
+            $about->about_us_image = $imgUrl;
+        }
+
+        $about->about_first_title = $request->about_first_title;
+        $about->about_first_left = $request->about_first_left;
+        $about->about_first_right = $request->about_first_right;
+        $about->about_after_image = $request->about_after_image;
+        $about->about_beside_image = $request->about_beside_image;
+        $about->save();
+        return back()->with('success','About Us Updated');
+
+    }
+
+    public function contact_us()
+    {
+        $about = all_static_data::first();
+        return view('admin.frontend.contactUs',compact('about'));
+    }
+
+
+    public function contact_us_save(Request $request)
+    {
+        $about = all_static_data::first();
+        $about->contact_us_content = $request->contact_us_content;
+        $about->save();
+        return back()->with('success','About Us Updated');
+    }
+
+    public function faq()
+    {
+        $all_faq = faq::orderBy('id','desc')->paginate(15);
+        return view('admin.frontend.faq',compact('all_faq'));
+    }
+
+    public function faq_craete(Request $request)
+    {
+        $new_faq = new faq();
+        $new_faq->question = $request->question;
+        $new_faq->answer = $request->answer;
+        $new_faq->save();
+
+        return back()->with('success','Faq Created');
+
+    }
+
+
+    public function faq_update(Request $request)
+    {
+        $faq = faq::where('id',$request->edit_faq)->first();
+        $faq->question = $request->question;
+        $faq->answer = $request->answer;
+        $faq->save();
+
+        return back()->with('success','Faq Updated');
+    }
+
+    public function faq_delete(Request $request)
+    {
+        $faq = faq::where('id',$request->delete_faq)->first();
+        $faq->delete();
+        return back()->with('success','Faq Deleted');
+    }
+
+
+
+
+
+
 
 
 

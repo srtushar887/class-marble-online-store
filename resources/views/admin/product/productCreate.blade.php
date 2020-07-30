@@ -80,7 +80,10 @@
                             </div>
                             <div class="col-md-6 mb-3">
                                 <label for="validationCustom01">Assembly</label>
-                                <input type="text" name="assembly" class="form-control" id="validationCustom01"  required="">
+                                <select class="form-control" name="assembly">
+                                    <option value="1">Yes</option>
+                                    <option value="2">No</option>
+                                </select>
                             </div>
 
 

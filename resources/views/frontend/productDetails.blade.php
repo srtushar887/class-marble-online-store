@@ -165,7 +165,7 @@
                                                             <td>{{$product->item_code}}</td>
                                                         </tr>
                                                         <tr>
-                                                            <th scope="row">Size</th>
+                                                            <th scope="row">Size (LXWXH)</th>
                                                             <td>{{$product->size}}</td>
                                                         </tr>
                                                         <tr>
@@ -177,8 +177,17 @@
                                                             <td>{{$product->cbm}}</td>
                                                         </tr>
                                                         <tr>
+                                                            <th scope="row">Finish</th>
+                                                            <td>{{$product->finish}}</td>
+                                                        </tr>
+                                                        <tr>
                                                             <th scope="row">Assembly</th>
-                                                            <td>{{$product->assembly}}</td>
+                                                            <td>@if ($product->assembly == 1)
+                                                                Yes
+                                                                @else
+                                                                    No
+                                                            @endif
+                                                            </td>
                                                         </tr>
                                                         </tbody>
                                                     </table>

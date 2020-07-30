@@ -51,22 +51,16 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'user_name' => ['required', 'string', 'max:255','unique:users'],
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
             'phone' => ['required', 'string'],
             'company_name' => ['required', 'string'],
-            'skype_id' => ['required', 'string'],
-            'whatapp_ap' => ['required', 'string'],
             'password' => ['required', 'string', 'min:8', 'confirmed'],
         ],[
-            'user_name.required' => 'Please Enter Your Username',
             'name.required' => 'Please Enter Your Full Name',
             'email.required' => 'Please Enter Your Email',
             'phone.required' => 'Please Enter Phone Number',
             'company_name.required' => 'Please Enter Company Name',
-            'skype_id.required' => 'Please Enter Skype ID',
-            'whatapp_ap.required' => 'Please Enter Whatsapp Number',
         ]);
     }
 
@@ -79,13 +73,10 @@ class RegisterController extends Controller
     protected function create(array $data)
     {
         return User::create([
-            'user_name' => $data['user_name'],
             'name' => $data['name'],
             'email' => $data['email'],
             'phone' => $data['phone'],
             'company_name' => $data['company_name'],
-            'skype_id' => $data['skype_id'],
-            'whatapp_ap' => $data['whatapp_ap'],
             'password' => Hash::make($data['password']),
             'exp_date' => Carbon::now()->addHour(1),
             'account_status' => 1,

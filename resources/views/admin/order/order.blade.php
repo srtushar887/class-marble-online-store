@@ -25,7 +25,9 @@
                             <thead>
                             <tr>
                                 <th>Order Id</th>
-                                <th>Order Amount</th>
+                                <th>User Name</th>
+                                <th>User Email</th>
+                                <th>Create Date</th>
                                 <th>Status</th>
                                 <th>Action</th>
                             </tr>
@@ -34,7 +36,12 @@
                             @foreach($orders as $order)
                                 <tr>
                                     <td>{{$order->order_id}}</td>
-                                    <td>{{$order->order_total}}</td>
+                                    <?php
+                                        $user = \App\User::where('id',$order->user_id)->first()
+                                    ?>
+                                    <td>{{$user->name}}</td>
+                                    <td>{{$user->email}}</td>
+                                    <td>{{$user->created_at}}</td>
                                     <td>
                                         @if ($order->order_status == 0)
                                             New Order
@@ -50,11 +57,37 @@
                                         <a href="{{route('admin.view.order',$order->id)}}">
                                             <button class="btn btn-success btn-sm"><i class="fas fa-edit"></i> </button>
                                         </a>
+                                        <button class="btn btn-danger btn-sm" data-toggle="modal" data-target="#deleteorder{{$order->id}}"><i class="fas fa-trash"></i> </button>
                                         <a href="{{route('admin.order.print',$order->id)}}">
                                             <button class="btn btn-success btn-sm"><i class="fas fa-print"></i> </button>
                                         </a>
                                     </td>
                                 </tr>
+
+                                <div class="modal fade" id="deleteorder{{$order->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                    <div class="modal-dialog modal-dialog-centered" role="document">
+                                        <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="exampleModalLongTitle">Delete Order</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                    <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <form action="{{route('admin.delete.order')}}" method="post">
+                                                @csrf
+                                            <div class="modal-body">
+                                                are your sure to delete this order ?
+                                                <input type="hidden" name="delete_order" value="{{$order->id}}">
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                <button type="submit" class="btn btn-primary">Delete</button>
+                                            </div>
+                                            </form>
+                                        </div>
+                                    </div>
+                                </div>
+
                             @endforeach
                             </tbody>
                         </table>

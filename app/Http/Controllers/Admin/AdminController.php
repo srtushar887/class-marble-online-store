@@ -6,6 +6,8 @@ use App\general_setting;
 use App\Http\Controllers\Controller;
 use App\order;
 use App\product;
+use App\User;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Intervention\Image\Facades\Image;
@@ -14,6 +16,19 @@ class AdminController extends Controller
 {
     public function index()
     {
+
+
+        $users = User::all();
+        $time = Carbon::now();
+        foreach ($users as $user){
+            if ($time > $user->exp_date){
+                $usera = User::where('id',$user->id)->first();
+                $usera->account_status = 1;
+                $usera->save();
+            }
+        }
+
+
         $total_pro = product::count();
         $total_order = order::count();
         return view('admin.index',compact('total_pro','total_order'));

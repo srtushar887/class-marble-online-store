@@ -5,14 +5,14 @@
 <!-- Mirrored from myrathemes.com/lunoz/layouts/vertical/index.html by HTTrack Website Copier/3.x [XR&CO'2014], Sat, 20 Jun 2020 03:53:45 GMT -->
 <head>
     <meta charset="utf-8" />
-    <title>Lunoz - Admin & Dashboard Template</title>
+    <title>{{$gn->site_name}}</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta content="Premium Multipurpose Admin & Dashboard Template" name="description" />
     <meta content="MyraStudio" name="author" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 
     <!-- App favicon -->
-    <link rel="shortcut icon" href="{{asset('assets/admin/')}}/images/favicon.ico">
+    <link rel="shortcut icon" href="{{asset($gn->icon)}}">
 
     <!-- App css -->
     <link href="{{asset('assets/admin/')}}/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -79,8 +79,8 @@
         <div data-simplebar class="h-100">
 
             <div class="navbar-brand-box">
-                <a href="index.html" class="logo">
-                    <img src="{{asset('assets/admin/')}}/images/logo-light.png" />
+                <a href="{{route('home')}}" class="logo">
+                    <img src="{{asset($gn->logo)}}" style="height: 58px;width: 168px;" />
                 </a>
             </div>
 
@@ -137,11 +137,14 @@
             <div class="container-fluid">
                 <div class="row">
                     <div class="col-sm-6">
-                        2020 © Lunoz.
+                        <?php
+                        $date = \Carbon\Carbon::now()->format('Y');
+                        ?>
+                        {{$date}} © {{$gn->site_name}}.
                     </div>
                     <div class="col-sm-6">
                         <div class="text-sm-right d-none d-sm-block">
-                            Design & Develop by Myra
+
                         </div>
                     </div>
                 </div>

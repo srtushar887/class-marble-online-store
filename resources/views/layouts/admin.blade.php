@@ -123,10 +123,24 @@
                     </li>
 
                     <li>
+                        <a href="{{route('admin.jobs')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>Job Management</span></a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.jobs.user')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>Applied Job User</span></a>
+                    </li>
+                    <li>
+                        <a href="{{route('admin.virtialtoure.user')}}" class="waves-effect"><i class='bx bx-home-smile'></i><span>Virtual Tour User</span></a>
+                    </li>
+
+
+                    <li>
                         <a href="javascript: void(0);" class="has-arrow waves-effect"><i class="bx bx-file"></i><span>Frontend Control</span></a>
                         <ul class="sub-menu" aria-expanded="false">
                             <li><a href="{{route('admin.slider')}}">Home Header</a></li>
                             <li><a href="{{route('admin.home.partner')}}">Home Partner Section</a></li>
+                            <li><a href="{{route('admin.about.us')}}">About Us</a></li>
+                            <li><a href="{{route('admin.contact.us')}}">Contact Us</a></li>
+                            <li><a href="{{route('admin.faq')}}">Faq</a></li>
                         </ul>
                     </li>
 
